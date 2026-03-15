@@ -5,6 +5,11 @@
 
 Vite Plus configuration for @kazupon
 
+## 🌟 Features
+
+- `vp fmt` custom configuration
+- `vp lint` custom cufiguration
+
 ## 💿 Installation
 
 ```sh
@@ -17,17 +22,40 @@ vp add -D @kazupon/vp-config
 
 ```ts
 // vite.config.ts
-import { fmt } from '@kazupon/vp-config'
 import { defineConfig } from 'vite-plus'
+import { fmt, defineLintConfig } from '@kazupon/vp-config'
 
 export default defineConfig({
   // ... something config
 
-  fmt
+  fmt,
+
+  lint: defineLintConfig({
+    // Custom options of `vp lint` (oxlint) and preset ...
+  })
 
   // and something here ...
 })
 ```
+
+## 🔨 Enable oxlint built-in plugins & preset configurations
+
+### Enable oxlint built-in plugins
+
+- typescript
+- import
+- promise
+- unicorn
+- node
+
+### Preset configurations
+
+The following preset configurations are supported:
+
+| Preset     | Powered by plugin or package                                                                     | Need to install oxlint / eslint plugin or package? |
+| ---------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| `comments` | [`@kazupon/eslint-plugin`(comment config)](https://www.npmjs.com/package/@kazupon/eslint-plugin) | no (built-in)                                      |
+| `vitest`   | oxlint built-in plugin                                                                           | no (built-in)                                      |
 
 ## ©️ License
 

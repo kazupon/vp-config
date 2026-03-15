@@ -1,0 +1,89 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`defineLintConfig 1`] = `
+{
+  "ignorePatterns": [],
+  "options": {
+    "typeAware": true,
+    "typeCheck": true,
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.{test,spec}.{ts,tsx}",
+        "**/*.{test,spec}.{ts,tsx}",
+      ],
+      "plugins": [
+        "vitest",
+      ],
+    },
+    {
+      "files": [
+        "**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+      ],
+      "jsPlugins": [
+        "@kazupon/eslint-plugin",
+      ],
+      "rules": {
+        "@kazupon/enforce-header-comment": "warn",
+        "@kazupon/no-tag-comments": [
+          "warn",
+          {
+            "tags": [
+              "TODO",
+              "FIXME",
+              "BUG",
+            ],
+          },
+        ],
+        "@kazupon/prefer-inline-code-words-comments": "error",
+        "@kazupon/prefer-scope-on-tag-comment": [
+          "warn",
+          {
+            "directives": [
+              "oxlint-disable",
+              "oxlint-disable-next-line",
+              "oxlint-disable-line",
+              "@ts-expect-error",
+              "@ts-ignore",
+              "@ts-nocheck",
+              "eslint-disable",
+              "eslint-disable-next-line",
+              "eslint-disable-line",
+            ],
+            "tags": [
+              "TODO",
+              "FIXME",
+              "HACK",
+              "BUG",
+              "NOTE",
+            ],
+          },
+        ],
+      },
+    },
+    {
+      "files": [
+        "**/*.md",
+        "**/*.md/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+        "**/*.config.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+        "**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+        "**/*.{test,spec}-d.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+      ],
+      "rules": {
+        "@kazupon/enforce-header-comment": "off",
+      },
+    },
+  ],
+  "plugins": [
+    "typescript",
+    "import",
+    "promise",
+    "unicorn",
+    "node",
+  ],
+  "rules": {
+    "curly": "error",
+  },
+}
+`;
