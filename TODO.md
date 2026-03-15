@@ -1,2 +1,1 @@
-- [ ] release npm registry
-- [ ] oxlint custom configuration
+- [ ] regex preset with [eslint-plugin-regexp](https://github.com/ota-meshi/eslint-plugin-regexp)
