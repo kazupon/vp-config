@@ -57,6 +57,10 @@ The following preset configurations are supported:
 | `comments` | [`@kazupon/eslint-plugin`(comment config)](https://www.npmjs.com/package/@kazupon/eslint-plugin) | no (built-in)                                      |
 | `vitest`   | oxlint built-in plugin                                                                           | no (built-in)                                      |
 
+## 📚 API References
+
+See the [API References](./docs/index.md)
+
 ## ©️ License
 
 [MIT](http://opensource.org/licenses/MIT)
