@@ -1,3 +1,14 @@
+/**
+ * Default code formatting configuration for oxfmt in Vite Plus.
+ *
+ * @module format
+ */
+
+/**
+ * @author kazuya kawaguchi (a.k.a. kazupon)
+ * @license MIT
+ */
+
 // TODO: workaround for vite-plus-test DTS bundling issue (missing ./aria-role.js)
 // import type { UserConfig } from 'vite-plus'
 // const config: UserConfig['fmt'] = {
