@@ -14,32 +14,18 @@ on:
 
 jobs:
   lint:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node-version: [22]
-        os: [ubuntu-latest]
-
-    name: Lint on Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+    name: Lint
     steps:
       - name: Checkout codes
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
-
-      - name: Setup node
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: pnpm
-
       - name: Setup Vite Plus
         uses: voidzero-dev/setup-vp@b5d848f5a62488f3d3d920f8aa6ac318a60c5f07 # v1.0.0
         with:
-          node-version: '22'
+          node-version: 22
           cache: true
 
       - name: Install dependencies
@@ -51,32 +37,18 @@ jobs:
   test:
     needs:
       - build
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node-version: [22]
-        os: [ubuntu-latest]
-
-    name: Test on Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+    name: Test
     steps:
       - name: Checkout codes
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
-
-      - name: Setup node
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: pnpm
-
       - name: Setup Vite Plus
         uses: voidzero-dev/setup-vp@b5d848f5a62488f3d3d920f8aa6ac318a60c5f07 # v1.0.0
         with:
-          node-version: '22'
+          node-version: 22
           cache: true
 
       - name: Install dependencies
@@ -86,32 +58,18 @@ jobs:
         run: vp test
 
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node-version: [22]
-        os: [ubuntu-latest]
-
-    name: Build on Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+    name: Build
     steps:
       - name: Checkout codes
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
-
-      - name: Setup node
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: pnpm
-
       - name: Setup Vite Plus
         uses: voidzero-dev/setup-vp@b5d848f5a62488f3d3d920f8aa6ac318a60c5f07 # v1.0.0
         with:
-          node-version: '22'
+          node-version: 22
           cache: true
 
       - name: Install dependencies
