@@ -29,7 +29,7 @@ import type { OxlintConfig } from 'vite-plus/lint'
 import type { CommentsLintOptions, VitestLintOptions } from './lint/index.ts'
 
 export {
-  defaultDirectrivesOfPreferScopeOnTagCommentRule,
+  defaultDirectivesOfPreferScopeOnTagCommentRule,
   defaultIgnoreFilesOfEnforceHeaderCommentRule,
   defaultTagsOfNoTagCommentsRule,
   defaultTagsOfPreferScopeOnTagCommentRule,

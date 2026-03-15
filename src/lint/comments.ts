@@ -36,7 +36,7 @@ export interface CommentsLintOptions {
     tags?: string[]
     /**
      * Directives to enforce scope on, such as `eslint-disable`, `@ts-ignore`, etc.
-     * default, see {@link defaultDirectrivesOfPreferScopeOnTagCommentRule}
+     * default, see {@link defaultDirectivesOfPreferScopeOnTagCommentRule}
      */
     directives?: string[]
   }
@@ -72,7 +72,7 @@ export const defaultTagsOfPreferScopeOnTagCommentRule = [
  * Default `directives` of `@kazupon/prefer-scope-on-tag-comment` rule.
  * Extend for oxlint directives.
  */
-export const defaultDirectrivesOfPreferScopeOnTagCommentRule = [
+export const defaultDirectivesOfPreferScopeOnTagCommentRule = [
   'oxlint-disable',
   'oxlint-disable-next-line',
   'oxlint-disable-line',
@@ -112,7 +112,7 @@ export function comments(options: CommentsLintOptions = {}): OxlintOverride[] {
     },
     preferScopeOnTagComment = {
       tags: defaultTagsOfPreferScopeOnTagCommentRule,
-      directives: defaultDirectrivesOfPreferScopeOnTagCommentRule
+      directives: defaultDirectivesOfPreferScopeOnTagCommentRule
     },
     enForceHeaderComment = {
       ignoreFiles: defaultIgnoreFilesOfEnforceHeaderCommentRule
