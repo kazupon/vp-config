@@ -1,0 +1,2 @@
+- [ ] release npm registry
+- [ ] oxlint custom configuration
