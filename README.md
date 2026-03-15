@@ -8,7 +8,7 @@ Vite Plus configuration for @kazupon
 ## 💿 Installation
 
 ```sh
-npm i -D @kazupon/vp-config
+vp add -D @kazupon/vp-config
 ```
 
 ## 🚀 Usage
