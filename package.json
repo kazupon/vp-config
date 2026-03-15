@@ -31,7 +31,7 @@
     "changelog": "gh-changelogen --repo=kazupon/vp-config",
     "typecheck": "tsgo --noEmit",
     "prepublishOnly": "pnpm run build",
-    "prepack": "vb pack",
+    "prepack": "vp pack",
     "release": "bumpp --commit \"release: v%s\" --all --push --tag",
     "prepare": "vp config"
   },
