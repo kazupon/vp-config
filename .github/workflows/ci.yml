@@ -31,8 +31,11 @@ jobs:
       - name: Install dependencies
         run: vp install
 
-      - name: Check strictly projects
+      - name: Check strictly codes
         run: vp check
+
+      - name: Check dependencies
+        run: vp run knip
 
   test:
     needs:
