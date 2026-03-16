@@ -58,5 +58,17 @@
       "vite": "npm:@voidzero-dev/vite-plus-core@latest",
       "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
     }
+  },
+  "inlinedDependencies": {
+    "@oxc-project/types": "0.115.0",
+    "@types/chai": "5.2.3",
+    "@types/deep-eql": "4.0.2",
+    "@voidzero-dev/vite-plus-core": "0.1.12",
+    "@voidzero-dev/vite-plus-test": "0.1.12",
+    "assertion-error": "2.0.1",
+    "oxfmt": "0.40.0",
+    "oxlint": "1.55.0",
+    "postcss": "8.5.8",
+    "vite-plus": "0.1.12"
   }
 }

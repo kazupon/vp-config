@@ -1,8 +1,8 @@
 import { expect, test } from 'vite-plus/test'
-import { fmt, defineLintConfig } from '../src/index.ts'
+import { defineFmtConfig, defineLintConfig } from '../src/index.ts'
 
-test('fmt', () => {
-  expect(fmt).toBeDefined()
+test('defineFmtConfig', () => {
+  expect(defineFmtConfig()).matchSnapshot()
 })
 
 test('defineLintConfig', () => {

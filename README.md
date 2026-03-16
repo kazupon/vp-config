@@ -23,12 +23,14 @@ vp add -D @kazupon/vp-config
 ```ts
 // vite.config.ts
 import { defineConfig } from 'vite-plus'
-import { fmt, defineLintConfig } from '@kazupon/vp-config'
+import { defineFmtConfig, defineLintConfig } from '@kazupon/vp-config'
 
 export default defineConfig({
   // ... something config
 
-  fmt,
+  fmt: defineFmtConfig({
+    // Custom options of `vp fmt` (oxfmt) ...
+  }),
 
   lint: defineLintConfig({
     // Custom options of `vp lint` (oxlint) and preset ...

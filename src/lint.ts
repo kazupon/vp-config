@@ -1,7 +1,7 @@
 /**
- * Lint configuration utilities for oxlint in Vite Plus.
+ * Lint configuration utilities for Vite Plus.
  *
- * This module provides utilities to define lint configurations.
+ * This module provides utilities to define oxlint configurations.
  *
  * @example
  * ```ts
