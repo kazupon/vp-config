@@ -9,5 +9,5 @@
  * @license MIT
  */
 
-export { default as fmt } from './format.ts'
+export * from './format.ts'
 export * from './lint.ts'

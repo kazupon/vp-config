@@ -1,5 +1,15 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`defineFmtConfig 1`] = `
+{
+  "arrowParens": "avoid",
+  "endOfLine": "lf",
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none",
+}
+`;
+
 exports[`defineLintConfig 1`] = `
 {
   "ignorePatterns": [],
