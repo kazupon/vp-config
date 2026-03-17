@@ -14,8 +14,11 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
-    name: Lint
+    runs-on: ${{ matrix.os }}
+    name: Lint (${{ matrix.os }})
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
     steps:
       - name: Checkout codes
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -40,8 +43,11 @@ jobs:
   test:
     needs:
       - build
-    runs-on: ubuntu-latest
-    name: Test
+    runs-on: ${{ matrix.os }}
+    name: Test (${{ matrix.os }})
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
     steps:
       - name: Checkout codes
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -61,8 +67,11 @@ jobs:
         run: vp test
 
   build:
-    runs-on: ubuntu-latest
-    name: Build
+    runs-on: ${{ matrix.os }}
+    name: Build (${{ matrix.os }})
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
     steps:
       - name: Checkout codes
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
