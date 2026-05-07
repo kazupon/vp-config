@@ -1,7 +1,6 @@
 # @kazupon/vp-config
 
-[![npm version][npm-version-src]][npm-version-href]
-[![CI][ci-src]][ci-href]
+[![npm version][npm-version-src]][npm-version-href] [![CI][ci-src]][ci-href]
 
 Vite Plus configuration for @kazupon
 
@@ -54,10 +53,10 @@ export default defineConfig({
 
 The following preset configurations are supported:
 
-| Preset     | Powered by plugin or package                                                                     | Need to install oxlint / eslint plugin or package? |
-| ---------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
-| `comments` | [`@kazupon/eslint-plugin`(comment config)](https://www.npmjs.com/package/@kazupon/eslint-plugin) | no (built-in)                                      |
-| `vitest`   | oxlint built-in plugin                                                                           | no (built-in)                                      |
+| Preset | Powered by plugin or package | Need to install oxlint / eslint plugin or package? |
+| --- | --- | --- |
+| `comments` | [`@kazupon/eslint-plugin`(comment config)](https://www.npmjs.com/package/@kazupon/eslint-plugin) | no (built-in) |
+| `vitest` | oxlint built-in plugin | no (built-in) |
 
 ## 📚 API References
 

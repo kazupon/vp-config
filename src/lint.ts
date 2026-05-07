@@ -47,7 +47,7 @@ export type LintConfigOptions = OxlintConfig & {
 }
 
 /**
- * Default options for enabling oxlint builtin plugins in Vite Plus linting.
+ * Default options for enabling oxlint built-in plugins in Vite Plus linting.
  */
 export const defaultEnableOxlintOptions = {
   typeAware: true,
@@ -55,7 +55,7 @@ export const defaultEnableOxlintOptions = {
 } as const satisfies OxlintConfig['options']
 
 /**
- * Default enable oxlint builtin plugins for Vite Plus linting.
+ * Default enable oxlint built-in plugins for Vite Plus linting.
  */
 export const defaultEnableOxlintBuiltinPlugins = [
   'typescript',

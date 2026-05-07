@@ -41,18 +41,18 @@
     "@kazupon/eslint-plugin": "^0.7.1"
   },
   "devDependencies": {
-    "@types/node": "^25.3.5",
+    "@types/node": "^25.6.0",
     "@typescript/native-preview": "7.0.0-dev.20260309.1",
-    "bumpp": "^10.4.1",
+    "bumpp": "^11.1.0",
     "gh-changelogen": "^0.2.8",
-    "knip": "^5.86.0",
-    "typedoc": "^0.28.17",
-    "typedoc-plugin-markdown": "^4.10.0",
-    "typescript": "^5.9.3",
+    "knip": "^5.88.1",
+    "typedoc": "^0.28.19",
+    "typedoc-plugin-markdown": "^4.11.0",
+    "typescript": "^6.0.3",
     "vite-plus": "latest",
     "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
   },
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@11.0.8",
   "pnpm": {
     "overrides": {
       "vite": "npm:@voidzero-dev/vite-plus-core@latest",
@@ -60,15 +60,14 @@
     }
   },
   "inlinedDependencies": {
-    "@oxc-project/types": "0.115.0",
+    "@oxc-project/types": "0.127.0",
     "@types/chai": "5.2.3",
     "@types/deep-eql": "4.0.2",
-    "@voidzero-dev/vite-plus-core": "0.1.12",
-    "@voidzero-dev/vite-plus-test": "0.1.12",
+    "@voidzero-dev/vite-plus-core": "0.1.20",
+    "@voidzero-dev/vite-plus-test": "0.1.20",
     "assertion-error": "2.0.1",
-    "oxfmt": "0.40.0",
-    "oxlint": "1.55.0",
-    "postcss": "8.5.8",
-    "vite-plus": "0.1.12"
+    "oxfmt": "0.46.0",
+    "oxlint": "1.61.0",
+    "vite-plus": "0.1.20"
   }
 }

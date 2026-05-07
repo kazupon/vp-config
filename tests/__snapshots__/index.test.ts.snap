@@ -4,6 +4,7 @@ exports[`defineFmtConfig 1`] = `
 {
   "arrowParens": "avoid",
   "endOfLine": "lf",
+  "proseWrap": "never",
   "semi": false,
   "singleQuote": true,
   "trailingComma": "none",

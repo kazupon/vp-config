@@ -10,4 +10,4 @@
 const defaultEnableOxlintBuiltinPlugins: ['typescript', 'import', 'promise', 'unicorn', 'node']
 ```
 
-Default enable oxlint builtin plugins for Vite Plus linting.
+Default enable oxlint built-in plugins for Vite Plus linting.

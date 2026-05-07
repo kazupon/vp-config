@@ -20,5 +20,4 @@ const defaultDirectivesOfPreferScopeOnTagCommentRule: [
 ]
 ```
 
-Default `directives` of `@kazupon/prefer-scope-on-tag-comment` rule.
-Extend for oxlint directives.
+Default `directives` of `@kazupon/prefer-scope-on-tag-comment` rule. Extended with oxlint directives.
