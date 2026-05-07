@@ -10,6 +10,6 @@ Lint options for vitest.
 
 ## Properties
 
-| Property                             | Type      | Description                                                                                                                          |
-| ------------------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Property | Type | Description |
+| --- | --- | --- |
 | <a id="property-files"></a> `files?` | `GlobSet` | Additional files to include in the Vitest linting. default, see [defaultVitestTargetFiles](../variables/defaultVitestTargetFiles.md) |

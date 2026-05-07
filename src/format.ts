@@ -35,7 +35,8 @@ export const defaultFmtConfig = {
   singleQuote: true,
   trailingComma: 'none',
   endOfLine: 'lf',
-  arrowParens: 'avoid'
+  arrowParens: 'avoid',
+  proseWrap: 'never'
 } as const satisfies FormactConfig
 
 /**

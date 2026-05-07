@@ -16,5 +16,4 @@ const defaultIgnoreFilesOfEnforceHeaderCommentRule: [
 ]
 ```
 
-Default `ignoreFiles` for `@kazupon/enforce-header-comment` rule.
-Extend for common files to ignore, such as markdown files, config files, test files, etc.
+Default `ignoreFiles` for `@kazupon/enforce-header-comment` rule. Extend for common files to ignore, such as markdown files, config files, test files, etc.
