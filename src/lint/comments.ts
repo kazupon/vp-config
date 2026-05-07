@@ -70,7 +70,7 @@ export const defaultTagsOfPreferScopeOnTagCommentRule = [
 
 /**
  * Default `directives` of `@kazupon/prefer-scope-on-tag-comment` rule.
- * Extend for oxlint directives.
+ * Extended with oxlint directives.
  */
 export const defaultDirectivesOfPreferScopeOnTagCommentRule = [
   'oxlint-disable',
@@ -86,7 +86,7 @@ export const defaultDirectivesOfPreferScopeOnTagCommentRule = [
 
 /**
  * Default `ignoreFiles` for `@kazupon/enforce-header-comment` rule.
- * Extend for common files to ignore, such as markdown files, config files, test files, etc.
+ * Extended to include commonly ignored files such as markdown, config, and test files.
  */
 export const defaultIgnoreFilesOfEnforceHeaderCommentRule = [
   '**/*.md',

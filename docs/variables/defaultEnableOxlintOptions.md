@@ -10,7 +10,7 @@
 const defaultEnableOxlintOptions: object
 ```
 
-Default options for enabling oxlint builtin plugins in Vite Plus linting.
+Default options for enabling oxlint built-in plugins in Vite Plus linting.
 
 ## Type Declaration
 
