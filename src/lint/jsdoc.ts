@@ -19,7 +19,7 @@ type OxlintRules = NonNullable<OxlintConfig['rules']>
  */
 export interface JSDocPluginSettings {
   /**
-   * JSDoc parser strategy for @ox-jsdoc/eslint-plugin-jsdoc.
+   * JSDoc parser strategy for `@ox-jsdoc/eslint-plugin-jsdoc`.
    *
    * @default 'batch'
    */

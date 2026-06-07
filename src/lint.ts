@@ -23,18 +23,21 @@
  * @license MIT
  */
 
-import { comments, jsdoc, vitest } from './lint/index.ts'
+import { comments, jsdoc, regexp, vitest } from './lint/index.ts'
 
 import type { OxlintConfig } from 'vite-plus/lint'
 import type {
   CommentsLintOptions,
   JSDocLintOptions,
   JSDocPluginSettings,
+  RegexpLintOptions,
+  RegexpPluginSettings,
   VitestLintOptions
 } from './lint/index.ts'
 
 type OxlintConfigSettings = NonNullable<OxlintConfig['settings']> & {
   jsdoc?: JSDocPluginSettings
+  regexp?: RegexpPluginSettings
 }
 
 export {
@@ -43,6 +46,7 @@ export {
   defaultTagsOfNoTagCommentsRule,
   defaultTagsOfPreferScopeOnTagCommentRule,
   defaultJSDocTargetFiles,
+  defaultRegexpTargetFiles,
   defaultVitestTargetFiles
 } from './lint/index.ts'
 
@@ -50,6 +54,9 @@ export type {
   CommentsLintOptions,
   JSDocLintOptions,
   JSDocPluginSettings,
+  RegexpAllowedCharacterRange,
+  RegexpLintOptions,
+  RegexpPluginSettings,
   VitestLintOptions
 } from './lint/index.ts'
 
@@ -60,6 +67,7 @@ export type LintConfigOptions = OxlintConfig & {
   vitest?: VitestLintOptions
   comments?: CommentsLintOptions
   jsdoc?: JSDocLintOptions
+  regexp?: RegexpLintOptions
 }
 
 /**
@@ -102,39 +110,58 @@ export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintCon
     settings = {},
     ignorePatterns = [],
     jsdoc: jsdocOptions,
+    regexp: regexpOptions,
     vitest: vitestOptions,
     comments: commentsOptions
   } = lintOptions
   const settingsWithJSDoc = settings as OxlintConfigSettings
   const jsdocRules = jsdocOptions ? jsdoc(jsdocOptions) : []
+  const regexpRules = regexpOptions ? regexp(regexpOptions) : []
   const jsdocSettings = jsdocOptions ? jsdocOptions.settings : undefined
+  const regexpSettings = regexpOptions ? regexpOptions.settings : undefined
   const hasJSDocSettings = jsdocOptions !== undefined || settingsWithJSDoc.jsdoc !== undefined
+  const hasRegexpSettings = regexpSettings !== undefined || settingsWithJSDoc.regexp !== undefined
   const hasCustomSettings = Object.keys(settings).length > 0
-  const mergedSettings = hasJSDocSettings
-    ? {
-        ...settings,
-        jsdoc: {
-          oxParseStrategy: 'batch',
-          ...settingsWithJSDoc.jsdoc,
-          ...jsdocSettings,
-          tagNamePreference: {
-            ...Object.assign(
-              { template: 'typeParam' },
-              settingsWithJSDoc.jsdoc?.tagNamePreference,
-              jsdocSettings?.tagNamePreference
-            )
+  const mergedSettings = {
+    ...settings,
+    ...(hasJSDocSettings
+      ? {
+          jsdoc: {
+            oxParseStrategy: 'batch',
+            ...settingsWithJSDoc.jsdoc,
+            ...jsdocSettings,
+            tagNamePreference: {
+              ...Object.assign(
+                { template: 'typeParam' },
+                settingsWithJSDoc.jsdoc?.tagNamePreference,
+                jsdocSettings?.tagNamePreference
+              )
+            }
           }
         }
-      }
-    : settings
+      : {}),
+    ...(hasRegexpSettings
+      ? {
+          regexp: {
+            ...settingsWithJSDoc.regexp,
+            ...regexpSettings
+          }
+        }
+      : {})
+  }
 
   return {
     options,
     plugins,
     rules,
     ignorePatterns,
-    overrides: [...vitest(vitestOptions), ...comments(commentsOptions), ...jsdocRules],
-    ...(hasJSDocSettings || hasCustomSettings
+    overrides: [
+      ...vitest(vitestOptions),
+      ...comments(commentsOptions),
+      ...jsdocRules,
+      ...regexpRules
+    ],
+    ...(hasJSDocSettings || hasRegexpSettings || hasCustomSettings
       ? { settings: mergedSettings as OxlintConfig['settings'] }
       : {})
   }

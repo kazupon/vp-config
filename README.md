@@ -57,6 +57,7 @@ The following preset configurations are supported:
 | --- | --- | --- |
 | `comments` | [`@kazupon/eslint-plugin`(comment config)](https://www.npmjs.com/package/@kazupon/eslint-plugin) | no (built-in) |
 | `jsdoc` | [`@ox-jsdoc/eslint-plugin-jsdoc`](https://www.npmjs.com/package/@ox-jsdoc/eslint-plugin-jsdoc) | no (built-in) |
+| `regexp` | [`eslint-plugin-regexp`](https://www.npmjs.com/package/eslint-plugin-regexp) | no (included dependency) |
 | `vitest` | oxlint built-in plugin | no (built-in) |
 
 ## 📚 API References

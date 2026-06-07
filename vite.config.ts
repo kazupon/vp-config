@@ -12,6 +12,7 @@ export default defineConfig({
     jsdoc: {
       typescript: 'syntax',
       error: true
-    }
+    },
+    regexp: {}
   })
 })

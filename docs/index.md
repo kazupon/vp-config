@@ -17,6 +17,7 @@ Entry point of `@kazupon/vp-config` package.
 | [defaultFmtConfig](variables/defaultFmtConfig.md) | Default code formatting configuration for oxfmt in Vite Plus. |
 | [defaultIgnoreFilesOfEnforceHeaderCommentRule](variables/defaultIgnoreFilesOfEnforceHeaderCommentRule.md) | Default `ignoreFiles` for `@kazupon/enforce-header-comment` rule. Extended to include commonly ignored files such as markdown, config, and test files. |
 | [defaultJSDocTargetFiles](variables/defaultJSDocTargetFiles.md) | Default files to apply jsdoc linting. |
+| [defaultRegexpTargetFiles](variables/defaultRegexpTargetFiles.md) | Default files to apply regexp linting. |
 | [defaultTagsOfNoTagCommentsRule](variables/defaultTagsOfNoTagCommentsRule.md) | Default `tags` of `@kazupon/no-tag-comments` rule. |
 | [defaultTagsOfPreferScopeOnTagCommentRule](variables/defaultTagsOfPreferScopeOnTagCommentRule.md) | Default `tags` of `@kazupon/prefer-scope-on-tag-comment` rule. |
 | [defaultVitestTargetFiles](variables/defaultVitestTargetFiles.md) | Default files to include in the Vitest linting. |
@@ -35,6 +36,8 @@ Entry point of `@kazupon/vp-config` package.
 | [CommentsLintOptions](interfaces/CommentsLintOptions.md) | Lint options for comments. |
 | [JSDocLintOptions](interfaces/JSDocLintOptions.md) | Lint options for jsdoc. |
 | [JSDocPluginSettings](interfaces/JSDocPluginSettings.md) | Plugin settings for `context.settings.jsdoc`. |
+| [RegexpLintOptions](interfaces/RegexpLintOptions.md) | Lint options for regexp. |
+| [RegexpPluginSettings](interfaces/RegexpPluginSettings.md) | Plugin settings for `context.settings.regexp`. |
 | [VitestLintOptions](interfaces/VitestLintOptions.md) | Lint options for vitest. |
 
 ## Type Aliases
@@ -42,3 +45,4 @@ Entry point of `@kazupon/vp-config` package.
 | Type Alias | Description |
 | --- | --- |
 | [LintConfigOptions](type-aliases/LintConfigOptions.md) | Options for [defineLintConfig](functions/defineLintConfig.md) |
+| [RegexpAllowedCharacterRange](type-aliases/RegexpAllowedCharacterRange.md) | Allowed character range for `eslint-plugin-regexp` settings. |
