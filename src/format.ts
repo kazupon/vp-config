@@ -25,7 +25,7 @@
 
 import type { UserConfig } from 'vite-plus'
 
-type FormactConfig = NonNullable<UserConfig['fmt']>
+type OxfmtConfig = NonNullable<UserConfig['fmt']>
 
 /**
  * Default code formatting configuration for oxfmt in Vite Plus.
@@ -37,16 +37,16 @@ export const defaultFmtConfig = {
   endOfLine: 'lf',
   arrowParens: 'avoid',
   proseWrap: 'never'
-} as const satisfies FormactConfig
+} as const satisfies OxfmtConfig
 
 /**
  * Define format configuration for Vite Plus.
  *
  * If an options is not provided, the {@link defaultFmtConfig | default configuration} be used.
  *
- * @param options - {@link FormactConfig} options for code formatting
- * @returns A {@link FormactConfig} configuration for oxfmt in Vite Plus
+ * @param options - OxfmtConfig options for code formatting
+ * @returns An OxfmtConfig configuration for oxfmt in Vite Plus
  */
-export function defineFmtConfig(options: FormactConfig = {}): FormactConfig {
+export function defineFmtConfig(options: OxfmtConfig = {}): OxfmtConfig {
   return { ...defaultFmtConfig, ...options }
 }

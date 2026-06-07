@@ -24,4 +24,4 @@ If an options is not provided, the [default configuration](../variables/defaultF
 
 `OxfmtConfig`
 
-A OxfmtConfig configuration for oxfmt in Vite Plus
+An OxfmtConfig configuration for oxfmt in Vite Plus

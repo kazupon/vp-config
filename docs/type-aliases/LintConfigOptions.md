@@ -26,6 +26,12 @@ optional comments?: CommentsLintOptions;
 optional jsdoc?: JSDocLintOptions;
 ```
 
+### regexp?
+
+```ts
+optional regexp?: RegexpLintOptions;
+```
+
 ### vitest?
 
 ```ts

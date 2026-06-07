@@ -3,3 +3,5 @@ dist
 *.log
 .notes
 .DS_Store
+.plans
+.notes
