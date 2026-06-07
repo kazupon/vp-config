@@ -8,3 +8,14 @@ test('defineFmtConfig', () => {
 test('defineLintConfig', () => {
   expect(defineLintConfig()).matchSnapshot()
 })
+
+test('defineLintConfig with jsdoc', () => {
+  expect(
+    defineLintConfig({
+      jsdoc: {
+        typescript: 'syntax',
+        error: true
+      }
+    })
+  ).matchSnapshot()
+})
