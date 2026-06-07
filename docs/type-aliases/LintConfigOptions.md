@@ -17,11 +17,17 @@ Options for [defineLintConfig](../functions/defineLintConfig.md)
 ### comments?
 
 ```ts
-optional comments: CommentsLintOptions;
+optional comments?: CommentsLintOptions;
+```
+
+### jsdoc?
+
+```ts
+optional jsdoc?: JSDocLintOptions;
 ```
 
 ### vitest?
 
 ```ts
-optional vitest: VitestLintOptions;
+optional vitest?: VitestLintOptions;
 ```

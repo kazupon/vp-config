@@ -98,3 +98,257 @@ exports[`defineLintConfig 1`] = `
   },
 }
 `;
+
+exports[`defineLintConfig with jsdoc 1`] = `
+{
+  "ignorePatterns": [],
+  "options": {
+    "typeAware": true,
+    "typeCheck": true,
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.{test,spec}.{ts,tsx}",
+        "**/*.{test,spec}.{ts,tsx}",
+      ],
+      "plugins": [
+        "vitest",
+      ],
+    },
+    {
+      "files": [
+        "**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+      ],
+      "jsPlugins": [
+        "@kazupon/eslint-plugin",
+      ],
+      "rules": {
+        "@kazupon/enforce-header-comment": "warn",
+        "@kazupon/no-tag-comments": [
+          "warn",
+          {
+            "tags": [
+              "TODO",
+              "FIXME",
+              "BUG",
+            ],
+          },
+        ],
+        "@kazupon/prefer-inline-code-words-comments": "error",
+        "@kazupon/prefer-scope-on-tag-comment": [
+          "warn",
+          {
+            "directives": [
+              "oxlint-disable",
+              "oxlint-disable-next-line",
+              "oxlint-disable-line",
+              "@ts-expect-error",
+              "@ts-ignore",
+              "@ts-nocheck",
+              "eslint-disable",
+              "eslint-disable-next-line",
+              "eslint-disable-line",
+            ],
+            "tags": [
+              "TODO",
+              "FIXME",
+              "HACK",
+              "BUG",
+              "NOTE",
+            ],
+          },
+        ],
+      },
+    },
+    {
+      "files": [
+        "**/*.md",
+        "**/*.md/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+        "**/*.config.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+        "**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+        "**/*.{test,spec}-d.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+      ],
+      "rules": {
+        "@kazupon/enforce-header-comment": "off",
+      },
+    },
+    {
+      "files": [
+        "**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+      ],
+      "jsPlugins": [
+        {
+          "name": "ox-jsdoc",
+          "specifier": "@ox-jsdoc/eslint-plugin-jsdoc",
+        },
+      ],
+      "rules": {
+        "ox-jsdoc/check-access": "error",
+        "ox-jsdoc/check-alignment": "error",
+        "ox-jsdoc/check-examples": "off",
+        "ox-jsdoc/check-indentation": "off",
+        "ox-jsdoc/check-line-alignment": "off",
+        "ox-jsdoc/check-param-names": [
+          "error",
+          {
+            "checkDestructured": false,
+          },
+        ],
+        "ox-jsdoc/check-property-names": "error",
+        "ox-jsdoc/check-syntax": "off",
+        "ox-jsdoc/check-tag-names": [
+          "error",
+          {
+            "definedTags": [
+              "typeParam",
+              "experimental",
+            ],
+          },
+        ],
+        "ox-jsdoc/check-template-names": "off",
+        "ox-jsdoc/check-types": "error",
+        "ox-jsdoc/check-values": "error",
+        "ox-jsdoc/convert-to-jsdoc-comments": "off",
+        "ox-jsdoc/empty-tags": "error",
+        "ox-jsdoc/escape-inline-tags": "error",
+        "ox-jsdoc/implements-on-classes": "error",
+        "ox-jsdoc/imports-as-dependencies": "off",
+        "ox-jsdoc/informative-docs": "off",
+        "ox-jsdoc/lines-before-block": "off",
+        "ox-jsdoc/match-description": "off",
+        "ox-jsdoc/match-name": "off",
+        "ox-jsdoc/multiline-blocks": "error",
+        "ox-jsdoc/no-bad-blocks": "off",
+        "ox-jsdoc/no-blank-block-descriptions": "off",
+        "ox-jsdoc/no-blank-blocks": "off",
+        "ox-jsdoc/no-defaults": "error",
+        "ox-jsdoc/no-missing-syntax": "off",
+        "ox-jsdoc/no-multi-asterisks": "error",
+        "ox-jsdoc/no-restricted-syntax": "off",
+        "ox-jsdoc/no-types": "error",
+        "ox-jsdoc/no-undefined-types": "off",
+        "ox-jsdoc/prefer-import-tag": "off",
+        "ox-jsdoc/reject-any-type": "error",
+        "ox-jsdoc/reject-function-type": "error",
+        "ox-jsdoc/require-asterisk-prefix": "off",
+        "ox-jsdoc/require-description": [
+          "error",
+          {
+            "contexts": [
+              "ArrowFunctionExpression",
+              "ClassDeclaration",
+              "ClassExpression",
+              "FunctionDeclaration",
+              "FunctionExpression",
+              "MethodDefinition",
+              "PropertyDefinition",
+              "VariableDeclaration",
+              "TSInterfaceDeclaration",
+              "TSTypeAliasDeclaration",
+              "TSPropertySignature",
+              "TSMethodSignature",
+            ],
+          },
+        ],
+        "ox-jsdoc/require-description-complete-sentence": "off",
+        "ox-jsdoc/require-example": "off",
+        "ox-jsdoc/require-file-overview": "off",
+        "ox-jsdoc/require-hyphen-before-param-description": [
+          "error",
+          "always",
+          {
+            "tags": {
+              "typeParam": "always",
+            },
+          },
+        ],
+        "ox-jsdoc/require-jsdoc": [
+          "error",
+          {
+            "contexts": [
+              "TSInterfaceDeclaration",
+              "TSTypeAliasDeclaration",
+              "TSPropertySignature",
+              "TSMethodSignature",
+            ],
+            "publicOnly": true,
+            "require": {
+              "ArrowFunctionExpression": true,
+              "ClassDeclaration": true,
+              "ClassExpression": true,
+              "FunctionDeclaration": true,
+              "FunctionExpression": true,
+              "MethodDefinition": true,
+            },
+          },
+        ],
+        "ox-jsdoc/require-next-description": "off",
+        "ox-jsdoc/require-next-type": "error",
+        "ox-jsdoc/require-param": [
+          "error",
+          {
+            "checkDestructuredRoots": false,
+          },
+        ],
+        "ox-jsdoc/require-param-description": "error",
+        "ox-jsdoc/require-param-name": "error",
+        "ox-jsdoc/require-param-type": "off",
+        "ox-jsdoc/require-property": "error",
+        "ox-jsdoc/require-property-description": "error",
+        "ox-jsdoc/require-property-name": "error",
+        "ox-jsdoc/require-property-type": "off",
+        "ox-jsdoc/require-rejects": "off",
+        "ox-jsdoc/require-returns": "error",
+        "ox-jsdoc/require-returns-check": "error",
+        "ox-jsdoc/require-returns-description": "error",
+        "ox-jsdoc/require-returns-type": "off",
+        "ox-jsdoc/require-tags": "off",
+        "ox-jsdoc/require-template": "off",
+        "ox-jsdoc/require-template-description": "off",
+        "ox-jsdoc/require-throws": "off",
+        "ox-jsdoc/require-throws-description": "off",
+        "ox-jsdoc/require-throws-type": "error",
+        "ox-jsdoc/require-yields": "error",
+        "ox-jsdoc/require-yields-check": "error",
+        "ox-jsdoc/require-yields-description": "off",
+        "ox-jsdoc/require-yields-type": "error",
+        "ox-jsdoc/sort-tags": "off",
+        "ox-jsdoc/tag-lines": [
+          "error",
+          "any",
+          {
+            "applyToEndTag": false,
+            "startLines": 1,
+          },
+        ],
+        "ox-jsdoc/text-escaping": "off",
+        "ox-jsdoc/ts-method-signature-style": "off",
+        "ox-jsdoc/ts-no-empty-object-type": "error",
+        "ox-jsdoc/ts-no-unnecessary-template-expression": "off",
+        "ox-jsdoc/ts-prefer-function-type": "off",
+        "ox-jsdoc/type-formatting": "off",
+        "ox-jsdoc/valid-types": "error",
+      },
+    },
+  ],
+  "plugins": [
+    "typescript",
+    "import",
+    "promise",
+    "unicorn",
+    "node",
+  ],
+  "rules": {
+    "curly": "error",
+  },
+  "settings": {
+    "jsdoc": {
+      "oxParseStrategy": "batch",
+      "tagNamePreference": {
+        "template": "typeParam",
+      },
+    },
+  },
+}
+`;

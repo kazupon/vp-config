@@ -14,9 +14,9 @@ Define lint configuration for Vite Plus.
 
 ## Parameters
 
-| Parameter     | Type                                                        |
-| ------------- | ----------------------------------------------------------- |
-| `lintOptions` | [`LintConfigOptions`](../type-aliases/LintConfigOptions.md) |
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `lintOptions` | [`LintConfigOptions`](../type-aliases/LintConfigOptions.md) | [LintConfigOptions](../type-aliases/LintConfigOptions.md) to customize the lint configuration. |
 
 ## Returns
 

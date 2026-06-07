@@ -7,7 +7,7 @@
 # Function: defineFmtConfig()
 
 ```ts
-function defineFmtConfig(options?): FormatConfig & object
+function defineFmtConfig(options?): OxfmtConfig
 ```
 
 Define format configuration for Vite Plus.
@@ -16,10 +16,12 @@ If an options is not provided, the [default configuration](../variables/defaultF
 
 ## Parameters
 
-| Parameter | Type                      | Description                               |
-| --------- | ------------------------- | ----------------------------------------- |
-| `options` | `FormatConfig` & `object` | FormactConfig options for code formatting |
+| Parameter | Type          | Description                             |
+| --------- | ------------- | --------------------------------------- |
+| `options` | `OxfmtConfig` | OxfmtConfig options for code formatting |
 
 ## Returns
 
-A FormactConfig configuration for oxfmt in Vite Plus
+`OxfmtConfig`
+
+A OxfmtConfig configuration for oxfmt in Vite Plus

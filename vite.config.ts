@@ -8,5 +8,10 @@ export default defineConfig({
   },
   pack: tsdownConfig,
   fmt: defineFmtConfig(),
-  lint: defineLintConfig()
+  lint: defineLintConfig({
+    jsdoc: {
+      typescript: 'syntax',
+      error: true
+    }
+  })
 })

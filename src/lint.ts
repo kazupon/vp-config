@@ -23,20 +23,35 @@
  * @license MIT
  */
 
-import { comments, vitest } from './lint/index.ts'
+import { comments, jsdoc, vitest } from './lint/index.ts'
 
 import type { OxlintConfig } from 'vite-plus/lint'
-import type { CommentsLintOptions, VitestLintOptions } from './lint/index.ts'
+import type {
+  CommentsLintOptions,
+  JSDocLintOptions,
+  JSDocPluginSettings,
+  VitestLintOptions
+} from './lint/index.ts'
+
+type OxlintConfigSettings = NonNullable<OxlintConfig['settings']> & {
+  jsdoc?: JSDocPluginSettings
+}
 
 export {
   defaultDirectivesOfPreferScopeOnTagCommentRule,
   defaultIgnoreFilesOfEnforceHeaderCommentRule,
   defaultTagsOfNoTagCommentsRule,
   defaultTagsOfPreferScopeOnTagCommentRule,
+  defaultJSDocTargetFiles,
   defaultVitestTargetFiles
 } from './lint/index.ts'
 
-export type { CommentsLintOptions, VitestLintOptions } from './lint/index.ts'
+export type {
+  CommentsLintOptions,
+  JSDocLintOptions,
+  JSDocPluginSettings,
+  VitestLintOptions
+} from './lint/index.ts'
 
 /**
  * Options for {@link defineLintConfig}
@@ -44,6 +59,7 @@ export type { CommentsLintOptions, VitestLintOptions } from './lint/index.ts'
 export type LintConfigOptions = OxlintConfig & {
   vitest?: VitestLintOptions
   comments?: CommentsLintOptions
+  jsdoc?: JSDocLintOptions
 }
 
 /**
@@ -75,7 +91,7 @@ export const defaultEnableOxlintRules = {
 /**
  * Define lint configuration for Vite Plus.
  *
- * @param options - {@link LintConfigOptions} to customize the lint configuration.
+ * @param lintOptions - {@link LintConfigOptions} to customize the lint configuration.
  * @returns An {@link OxlintConfig} configuration
  */
 export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintConfig {
@@ -83,16 +99,43 @@ export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintCon
     options = defaultEnableOxlintOptions,
     plugins = defaultEnableOxlintBuiltinPlugins,
     rules = defaultEnableOxlintRules,
+    settings = {},
     ignorePatterns = [],
+    jsdoc: jsdocOptions,
     vitest: vitestOptions,
     comments: commentsOptions
   } = lintOptions
+  const settingsWithJSDoc = settings as OxlintConfigSettings
+  const jsdocRules = jsdocOptions ? jsdoc(jsdocOptions) : []
+  const jsdocSettings = jsdocOptions ? jsdocOptions.settings : undefined
+  const hasJSDocSettings = jsdocOptions !== undefined || settingsWithJSDoc.jsdoc !== undefined
+  const hasCustomSettings = Object.keys(settings).length > 0
+  const mergedSettings = hasJSDocSettings
+    ? {
+        ...settings,
+        jsdoc: {
+          oxParseStrategy: 'batch',
+          ...settingsWithJSDoc.jsdoc,
+          ...jsdocSettings,
+          tagNamePreference: {
+            ...Object.assign(
+              { template: 'typeParam' },
+              settingsWithJSDoc.jsdoc?.tagNamePreference,
+              jsdocSettings?.tagNamePreference
+            )
+          }
+        }
+      }
+    : settings
 
   return {
     options,
     plugins,
     rules,
     ignorePatterns,
-    overrides: [...vitest(vitestOptions), ...comments(commentsOptions)]
+    overrides: [...vitest(vitestOptions), ...comments(commentsOptions), ...jsdocRules],
+    ...(hasJSDocSettings || hasCustomSettings
+      ? { settings: mergedSettings as OxlintConfig['settings'] }
+      : {})
   }
 }

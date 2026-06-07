@@ -56,6 +56,7 @@ The following preset configurations are supported:
 | Preset | Powered by plugin or package | Need to install oxlint / eslint plugin or package? |
 | --- | --- | --- |
 | `comments` | [`@kazupon/eslint-plugin`(comment config)](https://www.npmjs.com/package/@kazupon/eslint-plugin) | no (built-in) |
+| `jsdoc` | [`@ox-jsdoc/eslint-plugin-jsdoc`](https://www.npmjs.com/package/@ox-jsdoc/eslint-plugin-jsdoc) | no (built-in) |
 | `vitest` | oxlint built-in plugin | no (built-in) |
 
 ## 📚 API References

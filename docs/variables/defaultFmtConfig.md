@@ -26,6 +26,12 @@ readonly arrowParens: "avoid" = 'avoid';
 readonly endOfLine: "lf" = 'lf';
 ```
 
+### proseWrap
+
+```ts
+readonly proseWrap: "never" = 'never';
+```
+
 ### semi
 
 ```ts
