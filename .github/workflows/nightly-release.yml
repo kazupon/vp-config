@@ -36,4 +36,4 @@ jobs:
         run: vp pack
 
       - name: Release with pkg-pr-new
-        run: pnpx pkg-pr-new publish
+        run: vp exec pkg-pr-new publish
