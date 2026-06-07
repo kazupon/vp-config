@@ -19,3 +19,36 @@ test('defineLintConfig with jsdoc', () => {
     })
   ).matchSnapshot()
 })
+
+test('defineLintConfig deep merges jsdoc tagNamePreference', () => {
+  const config = defineLintConfig({
+    settings: {
+      jsdoc: {
+        tagNamePreference: {
+          params: 'arg'
+        }
+      }
+    },
+    jsdoc: {
+      settings: {
+        tagNamePreference: {
+          returns: 'result'
+        }
+      }
+    }
+  })
+
+  expect(config).toEqual(
+    expect.objectContaining({
+      settings: expect.objectContaining({
+        jsdoc: expect.objectContaining({
+          tagNamePreference: {
+            template: 'typeParam',
+            params: 'arg',
+            returns: 'result'
+          }
+        })
+      })
+    })
+  )
+})

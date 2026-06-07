@@ -115,11 +115,15 @@ export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintCon
         ...settings,
         jsdoc: {
           oxParseStrategy: 'batch',
-          tagNamePreference: {
-            template: 'typeParam'
-          },
           ...settingsWithJSDoc.jsdoc,
-          ...jsdocSettings
+          ...jsdocSettings,
+          tagNamePreference: {
+            ...Object.assign(
+              { template: 'typeParam' },
+              settingsWithJSDoc.jsdoc?.tagNamePreference,
+              jsdocSettings?.tagNamePreference
+            )
+          }
         }
       }
     : settings

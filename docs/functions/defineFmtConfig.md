@@ -16,12 +16,12 @@ If an options is not provided, the [default configuration](../variables/defaultF
 
 ## Parameters
 
-| Parameter | Type          | Description                               |
-| --------- | ------------- | ----------------------------------------- |
-| `options` | `OxfmtConfig` | FormactConfig options for code formatting |
+| Parameter | Type          | Description                             |
+| --------- | ------------- | --------------------------------------- |
+| `options` | `OxfmtConfig` | OxfmtConfig options for code formatting |
 
 ## Returns
 
 `OxfmtConfig`
 
-A FormactConfig configuration for oxfmt in Vite Plus
+A OxfmtConfig configuration for oxfmt in Vite Plus
