@@ -12,8 +12,8 @@ importers:
         specifier: ^0.7.1
         version: 0.7.1(eslint@9.39.4(jiti@2.6.1))
       '@ox-jsdoc/eslint-plugin-jsdoc':
-        specifier: ^0.0.17
-        version: 0.0.17(eslint@9.39.4(jiti@2.6.1))
+        specifier: ^0.0.18
+        version: 0.0.18(eslint@9.39.4(jiti@2.6.1))
       eslint-plugin-regexp:
         specifier: ^3.1.0
         version: 3.1.0(eslint@9.39.4(jiti@2.6.1))
@@ -153,43 +153,43 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@ox-jsdoc/binding-darwin-arm64@0.0.17':
-    resolution: {integrity: sha512-16vLUcijgtrfp9XT5raooet4g5ouA51mOlE8HzTFDzq3GqZigPBdTTMbbYv0f7H4JLgrtP8mWHpDJu/l1aJaVA==}
+  '@ox-jsdoc/binding-darwin-arm64@0.0.18':
+    resolution: {integrity: sha512-9cpEEPnn6ZT4x5h0FakFZsukCfQmRatK4uWRs4ihW5H5URm1UGEthH4Jf5r9bQbaEkty9h0J2Dg5M+UuUROo3A==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [darwin]
 
-  '@ox-jsdoc/binding-darwin-x64@0.0.17':
-    resolution: {integrity: sha512-RIBbWz+h3fuw8rQqrOZlVoOoCMvhfZ5DMmb71KdM1im7OisY6GYSR2KP3cj8PvVbRjQZnWOsS61YQ/IMhV3F9g==}
+  '@ox-jsdoc/binding-darwin-x64@0.0.18':
+    resolution: {integrity: sha512-YQJaVpKGIEKBBcV97BbYmu8K0wj5gr2bIpI5ImQJx7rTbh2mfAz6Y8VrUEl0ZzjB2SbECj/UGZLKcfO/sd8HeA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [darwin]
 
-  '@ox-jsdoc/binding-linux-x64-gnu@0.0.17':
-    resolution: {integrity: sha512-d04gCHmNX2UcoxW5XJzZ8pFo52uDkHUHcuuYO6NYp1hbKnYbXP94hZS/DvaVDhJsHJxER2Sj8/or++JR8ClBTA==}
+  '@ox-jsdoc/binding-linux-x64-gnu@0.0.18':
+    resolution: {integrity: sha512-GP3tcMOPLZJFSvqTuq0tI6+mKTjTGaX8H/kv5rS8djaWjnD8+fclwxOJ849QtLWfBKLs8P/9l1YLhUbssxkgNw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@ox-jsdoc/binding-win32-x64-msvc@0.0.17':
-    resolution: {integrity: sha512-yhoo+BMCKfquy7LQi7ZAg+E5r9CoUkcKqJ1PX7xoDN9UtS/MO+p/Iwd/OT/YduV4miz1Dx55+RFk4yhnNnLLoQ==}
+  '@ox-jsdoc/binding-win32-x64-msvc@0.0.18':
+    resolution: {integrity: sha512-EVam9VeXPuTFUQ5stEGbK8m7mlJ9DYfJH5ilN6XOgrYPhpvex7r4qtKXVLVylBPiWiVp8KD5eQn95aezM+4njQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [win32]
 
-  '@ox-jsdoc/decoder@0.0.17':
-    resolution: {integrity: sha512-6JKlVomjD5hqDXaNRiO3wKD5CC25ltqwnTDsvTFwQRejGnWd6yFhegiGzDkxIDKHlR5q9kiJW25UcT6p/quFqg==}
+  '@ox-jsdoc/decoder@0.0.18':
+    resolution: {integrity: sha512-BG1V6158nrNU/xqeO3OhRMsOAZXh1smiybr3ocEQkg2JMzH2Ae3DTlc9zWiPquA7UQ5gy9177LmfA63ovddgjQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
 
-  '@ox-jsdoc/eslint-plugin-jsdoc@0.0.17':
-    resolution: {integrity: sha512-/MrbjwG70jSQN7k8jGqdUqL4ujJK5sFw28NHw2MSQ2PibYxoeDGdOmQknGH0fXCqKUFwtjhwTvVW81Lc+Zgc3g==}
+  '@ox-jsdoc/eslint-plugin-jsdoc@0.0.18':
+    resolution: {integrity: sha512-P5Z7icDJb3S7AXycg69zxZq8DVwhWsm8osBOZKnd0AD4ACVl1Dr3LLY2rbfQFUQW9b1IJdMKPMwNcSm3FJt+cA==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
 
-  '@ox-jsdoc/jsdoccomment@0.0.17':
-    resolution: {integrity: sha512-y4+kk+BJiat0py0DXL5r9YEvLsMb0Wy5aJb1d3eTTiLwFq6ck2fnYDs/4cau7b3Nd8j7gQOHiolKqlm54eH+KA==}
+  '@ox-jsdoc/jsdoccomment@0.0.18':
+    resolution: {integrity: sha512-a/RVbksilAnJW/AuqDW2fw1bGteEXuoOsLXm9mr4zFJAGBL+lk6r8K6h202BYdgND3XicezmX2FNIjePiu1TTA==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
   '@oxc-project/runtime@0.115.0':
@@ -730,6 +730,9 @@ packages:
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
+  '@types/estree@1.0.9':
+    resolution: {integrity: sha512-GhdPgy1el4/ImP05X05Uw4cw2/M93BCUmnEvWZNStlCzEKME4Fkk+YpoA5OiHNQmoS7Cafb8Xa3Pya8m1Qrzeg==}
+
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
 
@@ -1022,6 +1025,10 @@ packages:
 
   comment-parser@1.4.6:
     resolution: {integrity: sha512-ObxuY6vnbWTN6Od72xfwN9DbzC7Y2vv8u1Soi9ahRKL37gb6y1qk6/dgjs+3JWuXJHWvsg3BXIwzd/rkmAwavg==}
+    engines: {node: '>= 12.0.0'}
+
+  comment-parser@1.4.7:
+    resolution: {integrity: sha512-0h+uSNtQGW3D98eQt3jJ8L06Fves8hncB4V/PKdw/Qb8Hnk19VaKuTr55UNRYiSoVa7WwrFls+rh3ux9agmkeQ==}
     engines: {node: '>= 12.0.0'}
 
   concat-map@0.0.1:
@@ -1415,8 +1422,8 @@ packages:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
     engines: {node: '>= 0.8.0'}
 
-  ox-jsdoc@0.0.17:
-    resolution: {integrity: sha512-5wLFyxxSn8Uz0R+xJxE5twOkqKIBsj6SeFaY4cbiz0ETSpPSPLu3roQemA3V4rOjD6+y216kzTi37ILD3Pp8oQ==}
+  ox-jsdoc@0.0.18:
+    resolution: {integrity: sha512-9ZohsCgdaUZgR12nm+2qLeIiuew+LnlWtYSQbDqtVkgL1y0UmWOpPby/vANXkVRZ4HvfPtaFZhpwFuvA8scvxQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
 
   oxc-resolver@11.19.1:
@@ -1915,24 +1922,24 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.1
 
-  '@ox-jsdoc/binding-darwin-arm64@0.0.17':
+  '@ox-jsdoc/binding-darwin-arm64@0.0.18':
     optional: true
 
-  '@ox-jsdoc/binding-darwin-x64@0.0.17':
+  '@ox-jsdoc/binding-darwin-x64@0.0.18':
     optional: true
 
-  '@ox-jsdoc/binding-linux-x64-gnu@0.0.17':
+  '@ox-jsdoc/binding-linux-x64-gnu@0.0.18':
     optional: true
 
-  '@ox-jsdoc/binding-win32-x64-msvc@0.0.17':
+  '@ox-jsdoc/binding-win32-x64-msvc@0.0.18':
     optional: true
 
-  '@ox-jsdoc/decoder@0.0.17': {}
+  '@ox-jsdoc/decoder@0.0.18': {}
 
-  '@ox-jsdoc/eslint-plugin-jsdoc@0.0.17(eslint@9.39.4(jiti@2.6.1))':
+  '@ox-jsdoc/eslint-plugin-jsdoc@0.0.18(eslint@9.39.4(jiti@2.6.1))':
     dependencies:
       '@es-joy/resolve.exports': 1.2.0
-      '@ox-jsdoc/jsdoccomment': 0.0.17
+      '@ox-jsdoc/jsdoccomment': 0.0.18
       are-docs-informative: 0.0.2
       comment-parser: 1.4.6
       debug: 4.4.3
@@ -1950,14 +1957,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@ox-jsdoc/jsdoccomment@0.0.17':
+  '@ox-jsdoc/jsdoccomment@0.0.18':
     dependencies:
-      '@types/estree': 1.0.8
+      '@types/estree': 1.0.9
       '@typescript-eslint/types': 8.60.1
-      comment-parser: 1.4.6
+      comment-parser: 1.4.7
       esquery: 1.7.0
       jsdoc-type-pratt-parser: 7.2.0
-      ox-jsdoc: 0.0.17
+      ox-jsdoc: 0.0.18
 
   '@oxc-project/runtime@0.115.0': {}
 
@@ -2256,6 +2263,8 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
+  '@types/estree@1.0.9': {}
+
   '@types/hast@3.0.4':
     dependencies:
       '@types/unist': 3.0.3
@@ -2452,6 +2461,8 @@ snapshots:
   comment-parser@1.4.1: {}
 
   comment-parser@1.4.6: {}
+
+  comment-parser@1.4.7: {}
 
   concat-map@0.0.1: {}
 
@@ -2827,14 +2838,14 @@ snapshots:
       type-check: 0.4.0
       word-wrap: 1.2.5
 
-  ox-jsdoc@0.0.17:
+  ox-jsdoc@0.0.18:
     dependencies:
-      '@ox-jsdoc/decoder': 0.0.17
+      '@ox-jsdoc/decoder': 0.0.18
     optionalDependencies:
-      '@ox-jsdoc/binding-darwin-arm64': 0.0.17
-      '@ox-jsdoc/binding-darwin-x64': 0.0.17
-      '@ox-jsdoc/binding-linux-x64-gnu': 0.0.17
-      '@ox-jsdoc/binding-win32-x64-msvc': 0.0.17
+      '@ox-jsdoc/binding-darwin-arm64': 0.0.18
+      '@ox-jsdoc/binding-darwin-x64': 0.0.18
+      '@ox-jsdoc/binding-linux-x64-gnu': 0.0.18
+      '@ox-jsdoc/binding-win32-x64-msvc': 0.0.18
 
   oxc-resolver@11.19.1:
     optionalDependencies:
