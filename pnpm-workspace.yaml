@@ -1,1 +1,17 @@
-minimumReleaseAge: 0
+allowBuilds:
+  esbuild: true
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@latest
+  vite-plus: latest
+minimumReleaseAgeExclude:
+  - '@kazupon/vp-config'
+  - '@iconify-json/simple-icons'
+  - '@ox-jsdoc/**'
+  - ox-jsdoc
+  - '@ox-content/**'
+  - vitepress-api-references
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: '*'
