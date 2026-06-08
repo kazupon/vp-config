@@ -13,9 +13,6 @@ catalogs:
       specifier: latest
       version: 0.1.24
 
-overrides:
-  vitest: npm:@voidzero-dev/vite-plus-test@latest
-
 importers:
 
   .:
