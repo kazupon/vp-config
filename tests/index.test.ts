@@ -1,31 +1,81 @@
+import { isAbsolute } from 'node:path'
 import { expect, test } from 'vite-plus/test'
 import { defineFmtConfig, defineLintConfig } from '../src/index.ts'
+
+type LintConfig = ReturnType<typeof defineLintConfig>
+type JSPluginEntry = {
+  name: string
+  specifier: string
+}
+
+function normalizeLintConfig(config: LintConfig): LintConfig {
+  return JSON.parse(
+    JSON.stringify(config, (key, value) =>
+      key === 'specifier' && typeof value === 'string' ? '<resolved-plugin>' : value
+    )
+  ) as LintConfig
+}
+
+function isJSPluginEntry(entry: unknown): entry is JSPluginEntry {
+  return (
+    typeof entry === 'object' &&
+    entry !== null &&
+    'name' in entry &&
+    'specifier' in entry &&
+    typeof entry.name === 'string' &&
+    typeof entry.specifier === 'string'
+  )
+}
 
 test('defineFmtConfig', () => {
   expect(defineFmtConfig()).matchSnapshot()
 })
 
 test('defineLintConfig', () => {
-  expect(defineLintConfig()).matchSnapshot()
+  expect(normalizeLintConfig(defineLintConfig())).matchSnapshot()
 })
 
 test('defineLintConfig with jsdoc', () => {
   expect(
-    defineLintConfig({
-      jsdoc: {
-        typescript: 'syntax',
-        error: true
-      }
-    })
+    normalizeLintConfig(
+      defineLintConfig({
+        jsdoc: {
+          typescript: 'syntax',
+          error: true
+        }
+      })
+    )
   ).matchSnapshot()
 })
 
 test('defineLintConfig with regexp', () => {
   expect(
-    defineLintConfig({
-      regexp: {}
-    })
+    normalizeLintConfig(
+      defineLintConfig({
+        regexp: {}
+      })
+    )
   ).matchSnapshot()
+})
+
+test('defineLintConfig resolves js plugin specifiers from package context', () => {
+  const config = defineLintConfig({
+    jsdoc: {},
+    regexp: {}
+  })
+  const pluginEntries =
+    config.overrides?.flatMap(override => override.jsPlugins ?? []).filter(isJSPluginEntry) ?? []
+
+  expect(pluginEntries).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({ name: '@kazupon' }),
+      expect.objectContaining({ name: 'ox-jsdoc' }),
+      expect.objectContaining({ name: 'regexp' })
+    ])
+  )
+  for (const entry of pluginEntries) {
+    expect(isAbsolute(entry.specifier)).toBe(true)
+  }
 })
 
 test('defineLintConfig deep merges jsdoc tagNamePreference', () => {

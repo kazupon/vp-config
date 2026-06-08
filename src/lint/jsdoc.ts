@@ -11,6 +11,8 @@
 
 import type { OxlintConfig, OxlintOverride } from 'vite-plus/lint'
 
+import { resolveJSPluginSpecifier } from './resolve.ts'
+
 type JSDocRuleSeverity = 'warn' | 'error'
 type OxlintRules = NonNullable<OxlintConfig['rules']>
 
@@ -294,7 +296,7 @@ export function jsdoc(options: JSDocLintOptions = {}): OxlintOverride[] {
       jsPlugins: [
         {
           name: 'ox-jsdoc',
-          specifier: '@ox-jsdoc/eslint-plugin-jsdoc'
+          specifier: resolveJSPluginSpecifier('@ox-jsdoc/eslint-plugin-jsdoc')
         }
       ],
       rules: {
