@@ -33,7 +33,10 @@ exports[`defineLintConfig 1`] = `
         "**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
       ],
       "jsPlugins": [
-        "@kazupon/eslint-plugin",
+        {
+          "name": "@kazupon",
+          "specifier": "<resolved-plugin>",
+        },
       ],
       "rules": {
         "@kazupon/enforce-header-comment": "warn",
@@ -121,7 +124,10 @@ exports[`defineLintConfig with jsdoc 1`] = `
         "**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
       ],
       "jsPlugins": [
-        "@kazupon/eslint-plugin",
+        {
+          "name": "@kazupon",
+          "specifier": "<resolved-plugin>",
+        },
       ],
       "rules": {
         "@kazupon/enforce-header-comment": "warn",
@@ -180,7 +186,7 @@ exports[`defineLintConfig with jsdoc 1`] = `
       "jsPlugins": [
         {
           "name": "ox-jsdoc",
-          "specifier": "@ox-jsdoc/eslint-plugin-jsdoc",
+          "specifier": "<resolved-plugin>",
         },
       ],
       "rules": {
@@ -375,7 +381,10 @@ exports[`defineLintConfig with regexp 1`] = `
         "**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
       ],
       "jsPlugins": [
-        "@kazupon/eslint-plugin",
+        {
+          "name": "@kazupon",
+          "specifier": "<resolved-plugin>",
+        },
       ],
       "rules": {
         "@kazupon/enforce-header-comment": "warn",
@@ -434,7 +443,7 @@ exports[`defineLintConfig with regexp 1`] = `
       "jsPlugins": [
         {
           "name": "regexp",
-          "specifier": "eslint-plugin-regexp",
+          "specifier": "<resolved-plugin>",
         },
       ],
       "rules": {

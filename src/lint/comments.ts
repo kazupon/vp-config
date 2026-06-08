@@ -11,6 +11,8 @@
 
 import type { OxlintOverride } from 'vite-plus/lint'
 
+import { resolveJSPluginSpecifier } from './resolve.ts'
+
 /**
  * Lint options for comments.
  */
@@ -122,7 +124,12 @@ export function comments(options: CommentsLintOptions = {}): OxlintOverride[] {
   const overrides: OxlintOverride[] = [
     {
       files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-      jsPlugins: ['@kazupon/eslint-plugin'],
+      jsPlugins: [
+        {
+          name: '@kazupon',
+          specifier: resolveJSPluginSpecifier('@kazupon/eslint-plugin')
+        }
+      ],
       rules: {
         '@kazupon/enforce-header-comment': 'warn',
         '@kazupon/no-tag-comments': [

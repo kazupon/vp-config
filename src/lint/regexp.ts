@@ -13,6 +13,8 @@ import regexpPlugin from 'eslint-plugin-regexp'
 
 import type { OxlintConfig, OxlintOverride } from 'vite-plus/lint'
 
+import { resolveJSPluginSpecifier } from './resolve.ts'
+
 /**
  * Allowed character range for `eslint-plugin-regexp` settings.
  */
@@ -79,7 +81,7 @@ export function regexp(options: RegexpLintOptions = {}): OxlintOverride[] {
       jsPlugins: [
         {
           name: 'regexp',
-          specifier: 'eslint-plugin-regexp'
+          specifier: resolveJSPluginSpecifier('eslint-plugin-regexp')
         }
       ],
       rules: {
