@@ -40,7 +40,7 @@
   "dependencies": {
     "@kazupon/eslint-plugin": "^0.7.1",
     "@ox-jsdoc/eslint-plugin-jsdoc": "^0.0.18",
-    "eslint": "^9.39.4",
+    "eslint": "^10.0.0",
     "eslint-plugin-regexp": "^3.1.0"
   },
   "devDependencies": {
