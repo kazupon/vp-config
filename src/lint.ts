@@ -49,12 +49,15 @@ export {
   defaultTagsOfPreferScopeOnTagCommentRule,
   defaultJSDocTargetFiles,
   defaultRegexpTargetFiles,
+  defaultImportTargetFiles,
+  defaultImportRules,
   defaultTypeScriptRules,
   defaultTypeScriptTargetFiles,
   defaultVitestTargetFiles
 } from './lint/index.ts'
 
 export type {
+  ImportLintOptions,
   CommentsLintOptions,
   JSDocLintOptions,
   JSDocPluginSettings,
