@@ -11,6 +11,7 @@
 
 export * from './vitest.ts'
 export * from './typescript.ts'
+export * from './import.ts'
 export * from './comments.ts'
 export * from './jsdoc.ts'
 export * from './regexp.ts'

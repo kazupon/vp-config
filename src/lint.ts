@@ -23,11 +23,12 @@
  * @license MIT
  */
 
-import { comments, jsdoc, regexp, typescript, vitest } from './lint/index.ts'
+import { comments, imports, jsdoc, regexp, typescript, vitest } from './lint/index.ts'
 
 import type { OxlintConfig } from 'vite-plus/lint'
 import type {
   CommentsLintOptions,
+  ImportLintOptions,
   JSDocLintOptions,
   JSDocPluginSettings,
   RegexpLintOptions,
@@ -69,6 +70,7 @@ export type {
  */
 export type LintConfigOptions = OxlintConfig & {
   typescript?: TypeScriptLintOptions
+  import?: ImportLintOptions
   vitest?: VitestLintOptions
   comments?: CommentsLintOptions
   jsdoc?: JSDocLintOptions
@@ -120,6 +122,7 @@ export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintCon
     vitest: vitestOptions,
     comments: commentsOptions
   } = lintOptions
+  const importOptions = lintOptions.import
   const settingsWithJSDoc = settings as OxlintConfigSettings
   const jsdocRules = jsdocOptions ? jsdoc(jsdocOptions) : []
   const regexpRules = regexpOptions ? regexp(regexpOptions) : []
@@ -163,6 +166,7 @@ export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintCon
     ignorePatterns,
     overrides: [
       ...typescript(typescriptOptions),
+      ...imports(importOptions),
       ...vitest(vitestOptions),
       ...comments(commentsOptions),
       ...jsdocRules,

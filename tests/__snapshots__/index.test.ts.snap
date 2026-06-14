@@ -35,6 +35,17 @@ exports[`defineLintConfig 1`] = `
     },
     {
       "files": [
+        "**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+      ],
+      "rules": {
+        "import/consistent-type-specifier-style": [
+          "error",
+          "prefer-top-level",
+        ],
+      },
+    },
+    {
+      "files": [
         "**/*.{test,spec}.{ts,tsx}",
         "**/*.{test,spec}.{ts,tsx}",
       ],
@@ -135,6 +146,17 @@ exports[`defineLintConfig with jsdoc 1`] = `
             "fixStyle": "separate-type-imports",
             "prefer": "type-imports",
           },
+        ],
+      },
+    },
+    {
+      "files": [
+        "**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+      ],
+      "rules": {
+        "import/consistent-type-specifier-style": [
+          "error",
+          "prefer-top-level",
         ],
       },
     },
@@ -406,6 +428,17 @@ exports[`defineLintConfig with regexp 1`] = `
             "fixStyle": "separate-type-imports",
             "prefer": "type-imports",
           },
+        ],
+      },
+    },
+    {
+      "files": [
+        "**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+      ],
+      "rules": {
+        "import/consistent-type-specifier-style": [
+          "error",
+          "prefer-top-level",
         ],
       },
     },
