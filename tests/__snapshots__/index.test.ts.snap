@@ -21,6 +21,20 @@ exports[`defineLintConfig 1`] = `
   "overrides": [
     {
       "files": [
+        "**/*.{ts,mts,cts,tsx}",
+      ],
+      "rules": {
+        "typescript/consistent-type-imports": [
+          "error",
+          {
+            "fixStyle": "separate-type-imports",
+            "prefer": "type-imports",
+          },
+        ],
+      },
+    },
+    {
+      "files": [
         "**/*.{test,spec}.{ts,tsx}",
         "**/*.{test,spec}.{ts,tsx}",
       ],
@@ -110,6 +124,20 @@ exports[`defineLintConfig with jsdoc 1`] = `
     "typeCheck": true,
   },
   "overrides": [
+    {
+      "files": [
+        "**/*.{ts,mts,cts,tsx}",
+      ],
+      "rules": {
+        "typescript/consistent-type-imports": [
+          "error",
+          {
+            "fixStyle": "separate-type-imports",
+            "prefer": "type-imports",
+          },
+        ],
+      },
+    },
     {
       "files": [
         "**/*.{test,spec}.{ts,tsx}",
@@ -367,6 +395,20 @@ exports[`defineLintConfig with regexp 1`] = `
     "typeCheck": true,
   },
   "overrides": [
+    {
+      "files": [
+        "**/*.{ts,mts,cts,tsx}",
+      ],
+      "rules": {
+        "typescript/consistent-type-imports": [
+          "error",
+          {
+            "fixStyle": "separate-type-imports",
+            "prefer": "type-imports",
+          },
+        ],
+      },
+    },
     {
       "files": [
         "**/*.{test,spec}.{ts,tsx}",

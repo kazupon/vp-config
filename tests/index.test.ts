@@ -78,6 +78,28 @@ test('defineLintConfig resolves js plugin specifiers from package context', () =
   }
 })
 
+test('defineLintConfig merges TypeScript rules', () => {
+  const config = defineLintConfig({
+    typescript: {
+      rules: {
+        'typescript/consistent-type-imports': 'warn'
+      }
+    }
+  })
+
+  expect(config).toEqual(
+    expect.objectContaining({
+      overrides: expect.arrayContaining([
+        expect.objectContaining({
+          rules: expect.objectContaining({
+            'typescript/consistent-type-imports': 'warn'
+          })
+        })
+      ])
+    })
+  )
+})
+
 test('defineLintConfig deep merges jsdoc tagNamePreference', () => {
   const config = defineLintConfig({
     settings: {

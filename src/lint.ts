@@ -23,7 +23,7 @@
  * @license MIT
  */
 
-import { comments, jsdoc, regexp, vitest } from './lint/index.ts'
+import { comments, jsdoc, regexp, typescript, vitest } from './lint/index.ts'
 
 import type { OxlintConfig } from 'vite-plus/lint'
 import type {
@@ -32,6 +32,7 @@ import type {
   JSDocPluginSettings,
   RegexpLintOptions,
   RegexpPluginSettings,
+  TypeScriptLintOptions,
   VitestLintOptions
 } from './lint/index.ts'
 
@@ -47,6 +48,8 @@ export {
   defaultTagsOfPreferScopeOnTagCommentRule,
   defaultJSDocTargetFiles,
   defaultRegexpTargetFiles,
+  defaultTypeScriptRules,
+  defaultTypeScriptTargetFiles,
   defaultVitestTargetFiles
 } from './lint/index.ts'
 
@@ -57,6 +60,7 @@ export type {
   RegexpAllowedCharacterRange,
   RegexpLintOptions,
   RegexpPluginSettings,
+  TypeScriptLintOptions,
   VitestLintOptions
 } from './lint/index.ts'
 
@@ -64,6 +68,7 @@ export type {
  * Options for {@link defineLintConfig}
  */
 export type LintConfigOptions = OxlintConfig & {
+  typescript?: TypeScriptLintOptions
   vitest?: VitestLintOptions
   comments?: CommentsLintOptions
   jsdoc?: JSDocLintOptions
@@ -111,6 +116,7 @@ export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintCon
     ignorePatterns = [],
     jsdoc: jsdocOptions,
     regexp: regexpOptions,
+    typescript: typescriptOptions,
     vitest: vitestOptions,
     comments: commentsOptions
   } = lintOptions
@@ -156,6 +162,7 @@ export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintCon
     rules,
     ignorePatterns,
     overrides: [
+      ...typescript(typescriptOptions),
       ...vitest(vitestOptions),
       ...comments(commentsOptions),
       ...jsdocRules,

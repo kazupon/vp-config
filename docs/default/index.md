@@ -2,7 +2,7 @@
 
 Entry point of `@kazupon/vp-config` package.
 
-_21 symbols · 2 functions · 6 interfaces · 2 types · 11 variables · 2 parameters · 21 members · 2 returns_
+_24 symbols · 2 functions · 7 interfaces · 2 types · 13 variables · 2 parameters · 24 members · 2 returns_
 
 ## Functions
 
@@ -20,6 +20,7 @@ _21 symbols · 2 functions · 6 interfaces · 2 types · 11 variables · 2 param
 | [JSDocPluginSettings](/docs/default/interfaces/JSDocPluginSettings.md) | Plugin settings for `context.settings.jsdoc`. |
 | [RegexpLintOptions](/docs/default/interfaces/RegexpLintOptions.md) | Lint options for regexp. |
 | [RegexpPluginSettings](/docs/default/interfaces/RegexpPluginSettings.md) | Plugin settings for `context.settings.regexp`. |
+| [TypeScriptLintOptions](/docs/default/interfaces/TypeScriptLintOptions.md) | Lint options for TypeScript. |
 | [VitestLintOptions](/docs/default/interfaces/VitestLintOptions.md) | Lint options for vitest. |
 
 ## Type Aliases
@@ -43,4 +44,6 @@ _21 symbols · 2 functions · 6 interfaces · 2 types · 11 variables · 2 param
 | [defaultRegexpTargetFiles](/docs/default/variables/defaultRegexpTargetFiles.md) | Default files to apply regexp linting. |
 | [defaultTagsOfNoTagCommentsRule](/docs/default/variables/defaultTagsOfNoTagCommentsRule.md) | Default `tags` of `@kazupon/no-tag-comments` rule. |
 | [defaultTagsOfPreferScopeOnTagCommentRule](/docs/default/variables/defaultTagsOfPreferScopeOnTagCommentRule.md) | Default `tags` of `@kazupon/prefer-scope-on-tag-comment` rule. |
+| [defaultTypeScriptRules](/docs/default/variables/defaultTypeScriptRules.md) | Default TypeScript lint rules. |
+| [defaultTypeScriptTargetFiles](/docs/default/variables/defaultTypeScriptTargetFiles.md) | Default files to apply TypeScript linting. |
 | [defaultVitestTargetFiles](/docs/default/variables/defaultVitestTargetFiles.md) | Default files to include in the Vitest linting. |
