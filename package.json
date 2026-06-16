@@ -58,7 +58,7 @@
     "typescript": "^6.0.3",
     "vite": "catalog:",
     "vite-plus": "catalog:",
-    "vitepress-api-references": "^0.1.0"
+    "vitepress-api-references": "^0.2.0"
   },
   "packageManager": "pnpm@11.5.2",
   "inlinedDependencies": {

@@ -73,8 +73,8 @@ importers:
         specifier: 'catalog:'
         version: 0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(esbuild@0.27.7)(jiti@2.7.0)(typescript@6.0.3)(yaml@2.9.0))(esbuild@0.27.7)(jiti@2.7.0)(typescript@6.0.3)(yaml@2.9.0)
       vitepress-api-references:
-        specifier: ^0.1.0
-        version: 0.1.0(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(esbuild@0.27.7)(jiti@2.7.0)(typescript@6.0.3)(yaml@2.9.0))(vitepress@2.0.0-alpha.17(@types/node@25.9.2)(jiti@2.7.0)(lightningcss@1.32.0)(postcss@8.5.15)(typescript@6.0.3)(yaml@2.9.0))
+        specifier: ^0.2.0
+        version: 0.2.2(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(esbuild@0.27.7)(jiti@2.7.0)(typescript@6.0.3)(yaml@2.9.0))(vitepress@2.0.0-alpha.17(@types/node@25.9.2)(jiti@2.7.0)(lightningcss@1.32.0)(postcss@8.5.15)(typescript@6.0.3)(yaml@2.9.0))
 
 packages:
 
@@ -356,35 +356,35 @@ packages:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
 
-  '@ox-content/binding-darwin-arm64@2.63.0':
-    resolution: {integrity: sha512-t2kUBvqddfBsL77VfFcc0lVS2BU1VBo8uZ7R4TgMtbIB2mimY4rZO0oz5zJXdVpVVFdLfnkTTTo5AHDdWoWCDQ==}
+  '@ox-content/binding-darwin-arm64@2.70.0':
+    resolution: {integrity: sha512-KwzVxQ1AYVIpw5BcA+Fx5+fswGSy+yZMJpyPr1knCQaEmkWaw5dLfnTVUvRbbW7bW4a87vLeMuMZ30C7zb5lgA==}
     cpu: [arm64]
     os: [darwin]
 
-  '@ox-content/binding-darwin-x64@2.63.0':
-    resolution: {integrity: sha512-cJItxNlYpNvJaSC9Y7NWpqqj8w0mtWEIZnfhRla6W8O+rmfDIs/wYn8++ite/OiU3Wo+VueoPtLnf+htzxawFw==}
+  '@ox-content/binding-darwin-x64@2.70.0':
+    resolution: {integrity: sha512-Ut5RseELIJKbSMjdDwgoIFrdcadmHFMR2vdaJ6WjhCM2XEQEfLKG4J+p55TtRbjWVItTFx16u3u7rY9/8ZA8RA==}
     cpu: [x64]
     os: [darwin]
 
-  '@ox-content/binding-linux-arm64-gnu@2.63.0':
-    resolution: {integrity: sha512-0UXw0rtnT9y9U51UvHITMXcUglhrGusreKd6u8fPvNZrKZ2TYMxonGz7qFp4O24J4QGFkHaFna/3m2sndTcJsg==}
+  '@ox-content/binding-linux-arm64-gnu@2.70.0':
+    resolution: {integrity: sha512-+6naS1I+TYL8JVM/B27x0Z6zZ83ulEyjf0xRAYxF6B1YKZ9hu94Zar1Wg7qQku2o18Qfq37TkQd/adcNicODOg==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@ox-content/binding-linux-x64-gnu@2.63.0':
-    resolution: {integrity: sha512-qC7mZdkLGSLKPCYw2iSum8+4mFr6XpAVJqEc+RQrvkoF1HPSmgW8hLL73vhkv32juhNrGv1CyVFbuto13G5Pcg==}
+  '@ox-content/binding-linux-x64-gnu@2.70.0':
+    resolution: {integrity: sha512-LHQgWhsvNB/fo0Hdtxt6xQnngdRmDxT/BzVIunzBNCsPFW/PG87rstCpDCNxcWrq5Hw3KOYRjVjn1jXGZu2pcw==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@ox-content/binding-win32-x64-msvc@2.63.0':
-    resolution: {integrity: sha512-L9s5NUUiG3qMfqkhvIKotYiz/J3wXiYuzo4A6tGEBp9QmcCuzC7bQdI5O1LTCc+8Mx5MM9PRrcCUaJjnc+flew==}
+  '@ox-content/binding-win32-x64-msvc@2.70.0':
+    resolution: {integrity: sha512-IFlhkEgMxXvwm8cJJsdeUFtTWica8J7ZbaniGPrCae4kavK9xm1owdG3t+/4GVY3DOU12KDuJ4dLsR7YJx0LTg==}
     cpu: [x64]
     os: [win32]
 
-  '@ox-content/napi@2.63.0':
-    resolution: {integrity: sha512-VR444oZIZEK49N71XOF6CcGPaOGGYhEAFTJvgqrKAETMbFEa793U6BTBDU3eHxHaOaTJ2eh03Q4OlGPCSY7cKw==}
+  '@ox-content/napi@2.70.0':
+    resolution: {integrity: sha512-Df9g4b99UQz6J2ZzTFrfCq3cp9QGia6wFuLLCvnYrY4Q9t8ufknkn6FM0mhLbLYRR/LEm4SktlQrgMtEAQNXnA==}
 
   '@ox-jsdoc/binding-darwin-arm64@0.0.19':
     resolution: {integrity: sha512-D8+rxpv3Gn4/URbcDlmupwbrwIHPPhdpagn6TGF7xYRS5up2F47qRlmuhzUAwXMXQdem+DX3Y/qumvXL2qPknQ==}
@@ -2577,8 +2577,8 @@ packages:
       yaml:
         optional: true
 
-  vitepress-api-references@0.1.0:
-    resolution: {integrity: sha512-HHG2eMgmSP3+kPs6WXKx80DeRqXgDhGA+lV7cUOHe5ZrRnsPik19fyvi43VGbgpCMAkUhI+tA7C3Ufyh2yFzNw==}
+  vitepress-api-references@0.2.2:
+    resolution: {integrity: sha512-maQIjo7Ls9wpNr0qolryV+xN9rC13KqFIKxbzyf86yr9NtqxvzFwctv+AYrjrrdFCr7xadJL34pb+RxoIUjSYw==}
     engines: {node: '>= 22'}
     peerDependencies:
       vite: '>=5'
@@ -2865,28 +2865,28 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@ox-content/binding-darwin-arm64@2.63.0':
+  '@ox-content/binding-darwin-arm64@2.70.0':
     optional: true
 
-  '@ox-content/binding-darwin-x64@2.63.0':
+  '@ox-content/binding-darwin-x64@2.70.0':
     optional: true
 
-  '@ox-content/binding-linux-arm64-gnu@2.63.0':
+  '@ox-content/binding-linux-arm64-gnu@2.70.0':
     optional: true
 
-  '@ox-content/binding-linux-x64-gnu@2.63.0':
+  '@ox-content/binding-linux-x64-gnu@2.70.0':
     optional: true
 
-  '@ox-content/binding-win32-x64-msvc@2.63.0':
+  '@ox-content/binding-win32-x64-msvc@2.70.0':
     optional: true
 
-  '@ox-content/napi@2.63.0':
+  '@ox-content/napi@2.70.0':
     optionalDependencies:
-      '@ox-content/binding-darwin-arm64': 2.63.0
-      '@ox-content/binding-darwin-x64': 2.63.0
-      '@ox-content/binding-linux-arm64-gnu': 2.63.0
-      '@ox-content/binding-linux-x64-gnu': 2.63.0
-      '@ox-content/binding-win32-x64-msvc': 2.63.0
+      '@ox-content/binding-darwin-arm64': 2.70.0
+      '@ox-content/binding-darwin-x64': 2.70.0
+      '@ox-content/binding-linux-arm64-gnu': 2.70.0
+      '@ox-content/binding-linux-x64-gnu': 2.70.0
+      '@ox-content/binding-win32-x64-msvc': 2.70.0
 
   '@ox-jsdoc/binding-darwin-arm64@0.0.19':
     optional: true
@@ -4684,9 +4684,9 @@ snapshots:
       lightningcss: 1.32.0
       yaml: 2.9.0
 
-  vitepress-api-references@0.1.0(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(esbuild@0.27.7)(jiti@2.7.0)(typescript@6.0.3)(yaml@2.9.0))(vitepress@2.0.0-alpha.17(@types/node@25.9.2)(jiti@2.7.0)(lightningcss@1.32.0)(postcss@8.5.15)(typescript@6.0.3)(yaml@2.9.0)):
+  vitepress-api-references@0.2.2(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(esbuild@0.27.7)(jiti@2.7.0)(typescript@6.0.3)(yaml@2.9.0))(vitepress@2.0.0-alpha.17(@types/node@25.9.2)(jiti@2.7.0)(lightningcss@1.32.0)(postcss@8.5.15)(typescript@6.0.3)(yaml@2.9.0)):
     dependencies:
-      '@ox-content/napi': 2.63.0
+      '@ox-content/napi': 2.70.0
       vite: '@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(esbuild@0.27.7)(jiti@2.7.0)(typescript@6.0.3)(yaml@2.9.0)'
       vitepress: 2.0.0-alpha.17(@types/node@25.9.2)(jiti@2.7.0)(lightningcss@1.32.0)(postcss@8.5.15)(typescript@6.0.3)(yaml@2.9.0)
 
