@@ -60,7 +60,7 @@
     "vite-plus": "catalog:",
     "vitepress-api-references": "^0.2.0"
   },
-  "packageManager": "pnpm@11.7.0",
+  "packageManager": "pnpm@11.8.0",
   "inlinedDependencies": {
     "@oxc-project/types": "0.133.0",
     "@types/chai": "5.2.3",
