@@ -47,7 +47,6 @@ exports[`defineLintConfig 1`] = `
     {
       "files": [
         "**/*.{test,spec}.{ts,tsx}",
-        "**/*.{test,spec}.{ts,tsx}",
       ],
       "plugins": [
         "vitest",
@@ -162,7 +161,6 @@ exports[`defineLintConfig with jsdoc 1`] = `
     },
     {
       "files": [
-        "**/*.{test,spec}.{ts,tsx}",
         "**/*.{test,spec}.{ts,tsx}",
       ],
       "plugins": [
@@ -444,7 +442,6 @@ exports[`defineLintConfig with regexp 1`] = `
     },
     {
       "files": [
-        "**/*.{test,spec}.{ts,tsx}",
         "**/*.{test,spec}.{ts,tsx}",
       ],
       "plugins": [

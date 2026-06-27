@@ -36,10 +36,13 @@ export const defaultVitestTargetFiles = ['**/*.{test,spec}.{ts,tsx}'] satisfies 
  * @returns An array of {@link LintOverrideOptions} for Vitest linting.
  */
 export function vitest(options: VitestLintOptions = {}): LintOverrideOptions[] {
-  const { files = defaultVitestTargetFiles } = options
+  const { files: userFiles } = options
+  const files = userFiles
+    ? ['**/*.{test,spec}.{ts,tsx}', ...normalizeFilePatterns(userFiles)]
+    : defaultVitestTargetFiles
   const overrides: LintOverrideOptions[] = [
     {
-      files: ['**/*.{test,spec}.{ts,tsx}', ...normalizeFilePatterns(files)],
+      files,
       plugins: ['vitest']
     }
   ]
