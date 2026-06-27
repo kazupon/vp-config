@@ -7,7 +7,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
-import { fileURLToPath, pathToFileURL } from 'node:url'
+import { fileURLToPath } from 'node:url'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const packageJson = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'))
@@ -30,8 +30,7 @@ if (!packedFile) {
   throw new Error(`Packed tarball was not found in ${packDir}`)
 }
 
-const packedPath = path.join(packDir, packedFile)
-const packedSpecifier = pathToFileURL(packedPath).href
+const packedSpecifier = `file:${path.posix.join('..', 'pack', packedFile)}`
 const tsgoVersion = packageJson.devDependencies['@typescript/native-preview']
 
 writeJson(path.join(consumerDir, 'package.json'), {
@@ -117,6 +116,7 @@ console.log(`Packaged consumer compatibility passed with vite-plus@${vitePlusVer
 function run(command, args, options) {
   execFileSync(command, args, {
     stdio: 'inherit',
+    shell: process.platform === 'win32',
     ...options
   })
 }
