@@ -5,7 +5,7 @@ Define lint configuration for Vite Plus.
 ## Signature
 
 ```ts
-export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintConfig
+export function defineLintConfig(lintOptions: LintConfigOptions = {}): VpLintConfig
 ```
 
 ## Parameters
@@ -16,4 +16,4 @@ export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintCon
 
 ## Returns
 
-`OxlintConfig` — An OxlintConfig configuration
+[`VpLintConfig`](/docs/default/type-aliases/VpLintConfig.md) — A [VpLintConfig](/docs/default/type-aliases/VpLintConfig.md) plain configuration object for oxlint in Vite Plus

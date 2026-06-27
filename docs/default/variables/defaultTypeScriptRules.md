@@ -10,5 +10,5 @@ export const defaultTypeScriptRules = {
     'error',
     { prefer: 'type-imports', fixStyle: 'separate-type-imports' }
   ]
-} as const satisfies OxlintConfig['rules']
+} satisfies RuleMap
 ```

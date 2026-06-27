@@ -38,6 +38,9 @@ jobs:
       - name: Check strictly codes
         run: vp check
 
+      - name: Check source compatibility
+        run: vp run typecheck:compat
+
       - name: Check dependencies
         run: vp run knip
 
@@ -70,10 +73,11 @@ jobs:
 
   build:
     runs-on: ${{ matrix.os }}
-    name: Build (${{ matrix.os }})
+    name: Build (${{ matrix.os }}, vite-plus ${{ matrix.vite-plus-version }})
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
+        vite-plus-version: ['0.1.24', '0.2.1']
     steps:
       - name: Checkout codes
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
@@ -92,3 +96,8 @@ jobs:
 
       - name: Building
         run: vp pack
+
+      - name: Check packaged compatibility
+        run: vp run typecheck:compat:packaged
+        env:
+          VITE_PLUS_VERSION: ${{ matrix.vite-plus-version }}

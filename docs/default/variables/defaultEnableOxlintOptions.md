@@ -8,5 +8,5 @@ Default options for enabling oxlint built-in plugins in Vite Plus linting.
 export const defaultEnableOxlintOptions = {
   typeAware: true,
   typeCheck: true
-} as const satisfies OxlintConfig['options']
+} satisfies Record<string, unknown>
 ```

@@ -1,7 +1,7 @@
 import type { KnipConfig } from 'knip'
 
 const config: KnipConfig = {
-  entry: ['src/index.ts', 'tests/**/*.test.ts'],
+  entry: ['src/index.ts', 'tests/**/*.test.ts', 'tests/types/**/*.ts'],
   ignoreDependencies: [
     '@kazupon/eslint-plugin',
     '@ox-jsdoc/eslint-plugin-jsdoc',

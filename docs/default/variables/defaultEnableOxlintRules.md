@@ -7,5 +7,5 @@ Default oxlint rules for Vite Plus linting.
 ```ts
 export const defaultEnableOxlintRules = {
   curly: 'error'
-} as const satisfies OxlintConfig['rules']
+} satisfies RuleMap
 ```

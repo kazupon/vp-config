@@ -9,12 +9,12 @@
  * @license MIT
  */
 
-import type { OxlintConfig, OxlintOverride } from 'vite-plus/lint'
-
+import { normalizeFilePatterns } from './normalize.ts'
 import { resolveJSPluginSpecifier } from './resolve.ts'
 
+import type { FilePattern, LintOverrideOptions, RuleMap } from '../types.ts'
+
 type JSDocRuleSeverity = 'warn' | 'error'
-type OxlintRules = NonNullable<OxlintConfig['rules']>
 
 /**
  * Plugin settings for `context.settings.jsdoc`.
@@ -59,11 +59,11 @@ export interface JSDocLintOptions {
    * Additional files to apply jsdoc linting.
    * default, see {@link defaultJSDocTargetFiles}
    */
-  files?: OxlintOverride['files']
+  files?: FilePattern
   /**
    * Additional rules to merge into the jsdoc rule set.
    */
-  rules?: OxlintConfig['rules']
+  rules?: RuleMap
   /**
    * Plugin settings for `context.settings.jsdoc`.
    */
@@ -75,9 +75,9 @@ export interface JSDocLintOptions {
  */
 export const defaultJSDocTargetFiles = [
   '**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'
-] as const satisfies string[]
+] satisfies FilePattern
 
-function createRecommendedRuleset(severity: JSDocRuleSeverity): OxlintRules {
+function createRecommendedRuleset(severity: JSDocRuleSeverity): RuleMap {
   return {
     'ox-jsdoc/check-access': severity,
     'ox-jsdoc/check-alignment': severity,
@@ -157,7 +157,7 @@ function createRecommendedRuleset(severity: JSDocRuleSeverity): OxlintRules {
   }
 }
 
-function createRecommendedTypeScriptRuleset(severity: JSDocRuleSeverity): OxlintRules {
+function createRecommendedTypeScriptRuleset(severity: JSDocRuleSeverity): RuleMap {
   return {
     ...createRecommendedRuleset(severity),
     'ox-jsdoc/check-tag-names': [
@@ -174,7 +174,7 @@ function createRecommendedTypeScriptRuleset(severity: JSDocRuleSeverity): Oxlint
   }
 }
 
-function createRecommendedTypeScriptFlavorRuleset(severity: JSDocRuleSeverity): OxlintRules {
+function createRecommendedTypeScriptFlavorRuleset(severity: JSDocRuleSeverity): RuleMap {
   return {
     ...createRecommendedRuleset(severity),
     'ox-jsdoc/no-undefined-types': 'off'
@@ -184,7 +184,7 @@ function createRecommendedTypeScriptFlavorRuleset(severity: JSDocRuleSeverity): 
 function createRecommendedRules(
   typescript: JSDocLintOptions['typescript'],
   severity: JSDocRuleSeverity
-): OxlintRules {
+): RuleMap {
   if (typescript === 'syntax') {
     return createRecommendedTypeScriptRuleset(severity)
   }
@@ -196,7 +196,7 @@ function createRecommendedRules(
   return createRecommendedRuleset(severity)
 }
 
-function createProjectRules(): OxlintRules {
+function createProjectRules(): RuleMap {
   return {
     'ox-jsdoc/require-jsdoc': [
       'error',
@@ -279,9 +279,9 @@ function createProjectRules(): OxlintRules {
  * Lint Configuration for `@ox-jsdoc/eslint-plugin-jsdoc`.
  *
  * @param options - {@link JSDocLintOptions} to customize the JSDoc lint configuration.
- * @returns An array of {@link OxlintOverride} for jsdoc linting.
+ * @returns An array of {@link LintOverrideOptions} for jsdoc linting.
  */
-export function jsdoc(options: JSDocLintOptions = {}): OxlintOverride[] {
+export function jsdoc(options: JSDocLintOptions = {}): LintOverrideOptions[] {
   const {
     typescript,
     error = false,
@@ -290,9 +290,9 @@ export function jsdoc(options: JSDocLintOptions = {}): OxlintOverride[] {
   } = options
 
   const severity = error ? 'error' : 'warn'
-  const override: OxlintOverride[] = [
+  const override: LintOverrideOptions[] = [
     {
-      files,
+      files: normalizeFilePatterns(files),
       jsPlugins: [
         {
           name: 'ox-jsdoc',

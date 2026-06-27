@@ -31,6 +31,8 @@
     "test": "vp test",
     "changelog": "gh-changelogen --repo=kazupon/vp-config",
     "typecheck": "tsgo --noEmit",
+    "typecheck:compat": "tsgo -p tsconfig.types.json",
+    "typecheck:compat:packaged": "node scripts/typecheck-packaged-consumer.mjs",
     "prepublishOnly": "pnpm run build",
     "prepack": "vp pack",
     "knip": "knip",
@@ -60,16 +62,13 @@
     "vite-plus": "catalog:",
     "vitepress-api-references": "^0.2.0"
   },
-  "packageManager": "pnpm@11.8.0",
-  "inlinedDependencies": {
-    "@oxc-project/types": "0.133.0",
-    "@types/chai": "5.2.3",
-    "@types/deep-eql": "4.0.2",
-    "@voidzero-dev/vite-plus-core": "0.1.24",
-    "@voidzero-dev/vite-plus-test": "0.1.24",
-    "assertion-error": "2.0.1",
-    "oxfmt": "0.52.0",
-    "oxlint": "1.67.0",
-    "vite-plus": "0.1.24"
-  }
+  "peerDependencies": {
+    "vite-plus": ">=0.1.0 <1"
+  },
+  "peerDependenciesMeta": {
+    "vite-plus": {
+      "optional": true
+    }
+  },
+  "packageManager": "pnpm@11.8.0"
 }

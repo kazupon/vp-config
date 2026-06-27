@@ -9,7 +9,9 @@
  * @license MIT
  */
 
-import type { OxlintConfig, OxlintOverride } from 'vite-plus/lint'
+import { normalizeFilePatterns } from './normalize.ts'
+
+import type { FilePattern, LintOverrideOptions, RuleMap } from '../types.ts'
 
 /**
  * Lint options for import rules.
@@ -19,11 +21,11 @@ export interface ImportLintOptions {
    * Additional files to apply import-related linting.
    * default, see {@link defaultImportTargetFiles}
    */
-  files?: OxlintOverride['files']
+  files?: FilePattern
   /**
    * Additional rules to merge into the import rule set.
    */
-  rules?: OxlintConfig['rules']
+  rules?: RuleMap
 }
 
 /**
@@ -31,26 +33,26 @@ export interface ImportLintOptions {
  */
 export const defaultImportTargetFiles = [
   '**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'
-] as const satisfies string[]
+] satisfies FilePattern
 
 /**
  * Default import lint rules.
  */
 export const defaultImportRules = {
   'import/consistent-type-specifier-style': ['error', 'prefer-top-level']
-} as const satisfies OxlintConfig['rules']
+} satisfies RuleMap
 
 /**
  * Lint configuration for import-related rules.
  *
  * @param options - {@link ImportLintOptions} to customize the import lint configuration.
- * @returns An array of {@link OxlintOverride} for import-related linting.
+ * @returns An array of {@link LintOverrideOptions} for import-related linting.
  */
-export function imports(options: ImportLintOptions = {}): OxlintOverride[] {
+export function imports(options: ImportLintOptions = {}): LintOverrideOptions[] {
   const { files = defaultImportTargetFiles, rules = {} } = options
   return [
     {
-      files,
+      files: normalizeFilePatterns(files),
       rules: {
         ...defaultImportRules,
         ...rules

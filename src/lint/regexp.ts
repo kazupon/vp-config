@@ -11,9 +11,10 @@
 
 import regexpPlugin from 'eslint-plugin-regexp'
 
-import type { OxlintConfig, OxlintOverride } from 'vite-plus/lint'
-
+import { normalizeFilePatterns } from './normalize.ts'
 import { resolveJSPluginSpecifier } from './resolve.ts'
+
+import type { FilePattern, LintOverrideOptions, RuleMap } from '../types.ts'
 
 /**
  * Allowed character range for `eslint-plugin-regexp` settings.
@@ -42,11 +43,11 @@ export interface RegexpLintOptions {
    * Additional files to apply regexp linting.
    * default, see {@link defaultRegexpTargetFiles}
    */
-  files?: OxlintOverride['files']
+  files?: FilePattern
   /**
    * Additional rules to merge into the regexp rule set.
    */
-  rules?: OxlintConfig['rules']
+  rules?: RuleMap
   /**
    * Plugin settings for `context.settings.regexp`.
    */
@@ -58,26 +59,26 @@ export interface RegexpLintOptions {
  */
 export const defaultRegexpTargetFiles = [
   '**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'
-] as const satisfies string[]
+] satisfies FilePattern
 
 const unsupportedOxlintRules = new Set(['prefer-regex-literals'])
 const recommendedRules = Object.fromEntries(
   Object.entries(regexpPlugin.configs['flat/recommended'].rules).filter(
     ([rule]) => !unsupportedOxlintRules.has(rule)
   )
-) as OxlintConfig['rules']
+) as RuleMap
 
 /**
  * Lint Configuration for `eslint-plugin-regexp`.
  *
  * @param options - {@link RegexpLintOptions} to customize the regexp lint configuration.
- * @returns An array of {@link OxlintOverride} for regexp linting.
+ * @returns An array of {@link LintOverrideOptions} for regexp linting.
  */
-export function regexp(options: RegexpLintOptions = {}): OxlintOverride[] {
+export function regexp(options: RegexpLintOptions = {}): LintOverrideOptions[] {
   const { files = defaultRegexpTargetFiles, rules = {} } = options
-  const overrides: OxlintOverride[] = [
+  const overrides: LintOverrideOptions[] = [
     {
-      files: [...files],
+      files: normalizeFilePatterns(files),
       jsPlugins: [
         {
           name: 'regexp',

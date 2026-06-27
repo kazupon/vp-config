@@ -9,9 +9,9 @@
  * @license MIT
  */
 
-import type { OxlintOverride } from 'vite-plus/lint'
-
 import { resolveJSPluginSpecifier } from './resolve.ts'
+
+import type { LintOverrideOptions } from '../types.ts'
 
 /**
  * Lint options for comments.
@@ -57,7 +57,7 @@ export interface CommentsLintOptions {
 /**
  * Default `tags` of `@kazupon/no-tag-comments` rule.
  */
-export const defaultTagsOfNoTagCommentsRule = ['TODO', 'FIXME', 'BUG'] as const satisfies string[]
+export const defaultTagsOfNoTagCommentsRule = ['TODO', 'FIXME', 'BUG'] satisfies string[]
 
 /**
  * Default `tags` of `@kazupon/prefer-scope-on-tag-comment` rule.
@@ -68,7 +68,7 @@ export const defaultTagsOfPreferScopeOnTagCommentRule = [
   'HACK',
   'BUG',
   'NOTE'
-] as const satisfies string[]
+] satisfies string[]
 
 /**
  * Default `directives` of `@kazupon/prefer-scope-on-tag-comment` rule.
@@ -84,7 +84,7 @@ export const defaultDirectivesOfPreferScopeOnTagCommentRule = [
   'eslint-disable',
   'eslint-disable-next-line',
   'eslint-disable-line'
-] as const satisfies string[]
+] satisfies string[]
 
 /**
  * Default `ignoreFiles` for `@kazupon/enforce-header-comment` rule.
@@ -96,7 +96,7 @@ export const defaultIgnoreFilesOfEnforceHeaderCommentRule = [
   '**/*.config.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
   '**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
   '**/*.{test,spec}-d.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'
-] as const satisfies string[]
+] satisfies string[]
 
 /**
  * Lint configuration for comments.
@@ -105,9 +105,9 @@ export const defaultIgnoreFilesOfEnforceHeaderCommentRule = [
  * - `@kazupon/eslint-plugin` comment rules for JavaScript and TypeScript files.
  *
  * @param options - {@link CommentsLintOptions} to customize the comments lint configuration.
- * @returns An array of {@link OxlintOverride} for comments linting.
+ * @returns An array of {@link LintOverrideOptions} for comments linting.
  */
-export function comments(options: CommentsLintOptions = {}): OxlintOverride[] {
+export function comments(options: CommentsLintOptions = {}): LintOverrideOptions[] {
   const {
     noTagComments = {
       tags: defaultTagsOfNoTagCommentsRule
@@ -121,7 +121,7 @@ export function comments(options: CommentsLintOptions = {}): OxlintOverride[] {
     }
   } = options
 
-  const overrides: OxlintOverride[] = [
+  const overrides: LintOverrideOptions[] = [
     {
       files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
       jsPlugins: [

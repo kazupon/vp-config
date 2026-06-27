@@ -12,5 +12,5 @@ export const defaultFmtConfig = {
   endOfLine: 'lf',
   arrowParens: 'avoid',
   proseWrap: 'never'
-} as const satisfies OxfmtConfig
+} satisfies FmtConfigOptions
 ```

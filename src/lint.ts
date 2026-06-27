@@ -25,7 +25,7 @@
 
 import { comments, imports, jsdoc, regexp, typescript, vitest } from './lint/index.ts'
 
-import type { OxlintConfig } from 'vite-plus/lint'
+import type { BaseLintConfigOptions, RuleMap, VpLintConfig } from './types.ts'
 import type {
   CommentsLintOptions,
   ImportLintOptions,
@@ -37,7 +37,7 @@ import type {
   VitestLintOptions
 } from './lint/index.ts'
 
-type OxlintConfigSettings = NonNullable<OxlintConfig['settings']> & {
+type LintConfigSettings = Record<string, unknown> & {
   jsdoc?: JSDocPluginSettings
   regexp?: RegexpPluginSettings
 }
@@ -57,6 +57,17 @@ export {
 } from './lint/index.ts'
 
 export type {
+  BaseLintConfigOptions,
+  FilePattern,
+  JSPluginEntry,
+  LintOverrideOptions,
+  RuleConfig,
+  RuleMap,
+  RuleSeverity,
+  VpLintConfig
+} from './types.ts'
+
+export type {
   ImportLintOptions,
   CommentsLintOptions,
   JSDocLintOptions,
@@ -71,7 +82,7 @@ export type {
 /**
  * Options for {@link defineLintConfig}
  */
-export type LintConfigOptions = OxlintConfig & {
+export type LintConfigOptions = BaseLintConfigOptions & {
   typescript?: TypeScriptLintOptions
   import?: ImportLintOptions
   vitest?: VitestLintOptions
@@ -86,7 +97,7 @@ export type LintConfigOptions = OxlintConfig & {
 export const defaultEnableOxlintOptions = {
   typeAware: true,
   typeCheck: true
-} as const satisfies OxlintConfig['options']
+} satisfies Record<string, unknown>
 
 /**
  * Default enable oxlint built-in plugins for Vite Plus linting.
@@ -97,36 +108,38 @@ export const defaultEnableOxlintBuiltinPlugins = [
   'promise',
   'unicorn',
   'node'
-] as const satisfies OxlintConfig['plugins']
+] satisfies string[]
 
 /**
  * Default oxlint rules for Vite Plus linting.
  */
 export const defaultEnableOxlintRules = {
   curly: 'error'
-} as const satisfies OxlintConfig['rules']
+} satisfies RuleMap
 
 /**
  * Define lint configuration for Vite Plus.
  *
  * @param lintOptions - {@link LintConfigOptions} to customize the lint configuration.
- * @returns An {@link OxlintConfig} configuration
+ * @returns A {@link VpLintConfig} plain configuration object for oxlint in Vite Plus
  */
-export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintConfig {
+export function defineLintConfig(lintOptions: LintConfigOptions = {}): VpLintConfig {
   const {
     options = defaultEnableOxlintOptions,
     plugins = defaultEnableOxlintBuiltinPlugins,
-    rules = defaultEnableOxlintRules,
+    rules: ruleOptions = {},
     settings = {},
     ignorePatterns = [],
+    overrides = [],
     jsdoc: jsdocOptions,
     regexp: regexpOptions,
     typescript: typescriptOptions,
+    import: importOptions,
     vitest: vitestOptions,
-    comments: commentsOptions
+    comments: commentsOptions,
+    ...restLintOptions
   } = lintOptions
-  const importOptions = lintOptions.import
-  const settingsWithJSDoc = settings as OxlintConfigSettings
+  const settingsWithJSDoc = settings as LintConfigSettings
   const jsdocRules = jsdocOptions ? jsdoc(jsdocOptions) : []
   const regexpRules = regexpOptions ? regexp(regexpOptions) : []
   const jsdocSettings = jsdocOptions ? jsdocOptions.settings : undefined
@@ -163,9 +176,13 @@ export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintCon
   }
 
   return {
+    ...restLintOptions,
     options,
     plugins,
-    rules,
+    rules: {
+      ...defaultEnableOxlintRules,
+      ...ruleOptions
+    },
     ignorePatterns,
     overrides: [
       ...typescript(typescriptOptions),
@@ -173,10 +190,11 @@ export function defineLintConfig(lintOptions: LintConfigOptions = {}): OxlintCon
       ...vitest(vitestOptions),
       ...comments(commentsOptions),
       ...jsdocRules,
-      ...regexpRules
+      ...regexpRules,
+      ...overrides
     ],
     ...(hasJSDocSettings || hasRegexpSettings || hasCustomSettings
-      ? { settings: mergedSettings as OxlintConfig['settings'] }
+      ? { settings: mergedSettings }
       : {})
   }
 }

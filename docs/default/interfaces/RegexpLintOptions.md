@@ -12,6 +12,6 @@ export interface RegexpLintOptions
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `files` _(optional)_ | `OxlintOverride['files']` | Additional files to apply regexp linting. default, see [defaultRegexpTargetFiles](/docs/default/variables/defaultRegexpTargetFiles.md) |
-| `rules` _(optional)_ | `OxlintConfig['rules']` | Additional rules to merge into the regexp rule set. |
+| `files` _(optional)_ | [`FilePattern`](/docs/default/type-aliases/FilePattern.md) | Additional files to apply regexp linting. default, see [defaultRegexpTargetFiles](/docs/default/variables/defaultRegexpTargetFiles.md) |
+| `rules` _(optional)_ | [`RuleMap`](/docs/default/type-aliases/RuleMap.md) | Additional rules to merge into the regexp rule set. |
 | `settings` _(optional)_ | [`RegexpPluginSettings`](/docs/default/interfaces/RegexpPluginSettings.md) | Plugin settings for `context.settings.regexp`. |
