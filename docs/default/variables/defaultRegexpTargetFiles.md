@@ -7,5 +7,5 @@ Default files to apply regexp linting.
 ```ts
 export const defaultRegexpTargetFiles = [
   '**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'
-] as const satisfies string[]
+] satisfies FilePattern
 ```

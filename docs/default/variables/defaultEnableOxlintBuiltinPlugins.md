@@ -11,5 +11,5 @@ export const defaultEnableOxlintBuiltinPlugins = [
   'promise',
   'unicorn',
   'node'
-] as const satisfies OxlintConfig['plugins']
+] satisfies string[]
 ```

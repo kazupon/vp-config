@@ -11,5 +11,5 @@ export const defaultTagsOfPreferScopeOnTagCommentRule = [
   'HACK',
   'BUG',
   'NOTE'
-] as const satisfies string[]
+] satisfies string[]
 ```

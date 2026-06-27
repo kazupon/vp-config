@@ -23,9 +23,7 @@
  * @license MIT
  */
 
-import type { UserConfig } from 'vite-plus'
-
-type OxfmtConfig = NonNullable<UserConfig['fmt']>
+import type { FmtConfigOptions, VpFmtConfig } from './types.ts'
 
 /**
  * Default code formatting configuration for oxfmt in Vite Plus.
@@ -37,16 +35,18 @@ export const defaultFmtConfig = {
   endOfLine: 'lf',
   arrowParens: 'avoid',
   proseWrap: 'never'
-} as const satisfies OxfmtConfig
+} satisfies FmtConfigOptions
 
 /**
  * Define format configuration for Vite Plus.
  *
  * If an options is not provided, the {@link defaultFmtConfig | default configuration} be used.
  *
- * @param options - OxfmtConfig options for code formatting
- * @returns An OxfmtConfig configuration for oxfmt in Vite Plus
+ * @param options - {@link FmtConfigOptions} options for code formatting
+ * @returns A {@link VpFmtConfig} plain configuration object for oxfmt in Vite Plus
  */
-export function defineFmtConfig(options: OxfmtConfig = {}): OxfmtConfig {
+export function defineFmtConfig(options: FmtConfigOptions = {}): VpFmtConfig {
   return { ...defaultFmtConfig, ...options }
 }
+
+export type { FmtConfigOptions, VpFmtConfig } from './types.ts'

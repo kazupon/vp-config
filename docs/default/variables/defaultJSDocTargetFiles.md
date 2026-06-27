@@ -7,5 +7,5 @@ Default files to apply jsdoc linting.
 ```ts
 export const defaultJSDocTargetFiles = [
   '**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'
-] as const satisfies string[]
+] satisfies FilePattern
 ```

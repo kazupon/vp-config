@@ -12,4 +12,4 @@ export interface VitestLintOptions
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `files` _(optional)_ | `OxlintOverride['files']` | Additional files to include in the Vitest linting. default, see [defaultVitestTargetFiles](/docs/default/variables/defaultVitestTargetFiles.md) |
+| `files` _(optional)_ | [`FilePattern`](/docs/default/type-aliases/FilePattern.md) | Additional files to include in the Vitest linting. default, see [defaultVitestTargetFiles](/docs/default/variables/defaultVitestTargetFiles.md) |

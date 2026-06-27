@@ -5,8 +5,9 @@ Options for [defineLintConfig](/docs/default/functions/defineLintConfig.md)
 ## Signature
 
 ```ts
-export type LintConfigOptions = OxlintConfig & {
+export type LintConfigOptions = BaseLintConfigOptions & {
   typescript?: TypeScriptLintOptions
+  import?: ImportLintOptions
   vitest?: VitestLintOptions
   comments?: CommentsLintOptions
   jsdoc?: JSDocLintOptions
@@ -19,6 +20,7 @@ export type LintConfigOptions = OxlintConfig & {
 | Name | Type | Description |
 | --- | --- | --- |
 | `comments` _(optional)_ | [`CommentsLintOptions`](/docs/default/interfaces/CommentsLintOptions.md) |  |
+| `import` _(optional)_ | [`ImportLintOptions`](/docs/default/interfaces/ImportLintOptions.md) |  |
 | `jsdoc` _(optional)_ | [`JSDocLintOptions`](/docs/default/interfaces/JSDocLintOptions.md) |  |
 | `regexp` _(optional)_ | [`RegexpLintOptions`](/docs/default/interfaces/RegexpLintOptions.md) |  |
 | `typescript` _(optional)_ | [`TypeScriptLintOptions`](/docs/default/interfaces/TypeScriptLintOptions.md) |  |

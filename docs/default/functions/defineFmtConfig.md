@@ -7,15 +7,15 @@ If an options is not provided, the [default configuration](/docs/default/variabl
 ## Signature
 
 ```ts
-export function defineFmtConfig(options: OxfmtConfig = {}): OxfmtConfig
+export function defineFmtConfig(options: FmtConfigOptions = {}): VpFmtConfig
 ```
 
 ## Parameters
 
-| Name      | Type          | Description                                                       |
-| --------- | ------------- | ----------------------------------------------------------------- |
-| `options` | `OxfmtConfig` | OxfmtConfig options for code formatting _(optional, default: {})_ |
+| Name | Type | Description |
+| --- | --- | --- |
+| `options` | [`FmtConfigOptions`](/docs/default/interfaces/FmtConfigOptions.md) | [FmtConfigOptions](/docs/default/interfaces/FmtConfigOptions.md) options for code formatting _(optional, default: {})_ |
 
 ## Returns
 
-`OxfmtConfig` — An OxfmtConfig configuration for oxfmt in Vite Plus
+[`VpFmtConfig`](/docs/default/type-aliases/VpFmtConfig.md) — A [VpFmtConfig](/docs/default/type-aliases/VpFmtConfig.md) plain configuration object for oxfmt in Vite Plus

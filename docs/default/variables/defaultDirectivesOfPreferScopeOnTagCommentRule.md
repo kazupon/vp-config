@@ -15,5 +15,5 @@ export const defaultDirectivesOfPreferScopeOnTagCommentRule = [
   'eslint-disable',
   'eslint-disable-next-line',
   'eslint-disable-line'
-] as const satisfies string[]
+] satisfies string[]
 ```

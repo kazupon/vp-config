@@ -2,7 +2,11 @@ import { isAbsolute } from 'node:path'
 import { expect, test } from 'vite-plus/test'
 import { defineFmtConfig, defineLintConfig } from '../src/index.ts'
 
-type LintConfig = ReturnType<typeof defineLintConfig>
+type LintConfig = Record<string, unknown> & {
+  overrides?: Array<{
+    jsPlugins?: JSPluginEntry[] | null
+  }>
+}
 type JSPluginEntry = {
   name: string
   specifier: string
@@ -62,7 +66,7 @@ test('defineLintConfig resolves js plugin specifiers from package context', () =
   const config = defineLintConfig({
     jsdoc: {},
     regexp: {}
-  })
+  }) as LintConfig
   const pluginEntries =
     config.overrides?.flatMap(override => override.jsPlugins ?? []).filter(isJSPluginEntry) ?? []
 
@@ -96,6 +100,23 @@ test('defineLintConfig merges TypeScript rules', () => {
           })
         })
       ])
+    })
+  )
+})
+
+test('defineLintConfig merges top-level rules', () => {
+  const config = defineLintConfig({
+    rules: {
+      'vite-plus/prefer-vite-plus-imports': 'error'
+    }
+  })
+
+  expect(config).toEqual(
+    expect.objectContaining({
+      rules: {
+        curly: 'error',
+        'vite-plus/prefer-vite-plus-imports': 'error'
+      }
     })
   )
 })

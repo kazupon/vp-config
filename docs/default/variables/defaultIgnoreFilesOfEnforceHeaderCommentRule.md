@@ -11,5 +11,5 @@ export const defaultIgnoreFilesOfEnforceHeaderCommentRule = [
   '**/*.config.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
   '**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
   '**/*.{test,spec}-d.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'
-] as const satisfies string[]
+] satisfies string[]
 ```
