@@ -49,7 +49,7 @@
     "@types/chai": "5.2.3",
     "@types/deep-eql": "4.0.2",
     "@types/node": "^25.9.2",
-    "@typescript/native-preview": "7.0.0-dev.20260624.1",
+    "@typescript/native-preview": "7.0.0-dev.20260626.1",
     "assertion-error": "2.0.1",
     "bumpp": "^11.1.0",
     "gh-changelogen": "^0.2.8",
