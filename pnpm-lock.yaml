@@ -28,8 +28,8 @@ importers:
         version: 3.1.0(eslint@9.39.4(jiti@2.7.0)(supports-color@7.2.0))
     devDependencies:
       '@oxc-project/types':
-        specifier: 0.140.0
-        version: 0.140.0
+        specifier: 0.141.0
+        version: 0.141.0
       '@types/chai':
         specifier: 5.2.3
         version: 5.2.3
@@ -572,9 +572,6 @@ packages:
 
   '@oxc-project/types@0.133.0':
     resolution: {integrity: sha512-KzkdCd6Uxqnf6l3HOw1xfatAlUURA0g14cvBYFyJ5SaNOQbOUvBr9PKArcPcrNIeRsBdgcUzOGrhKveVpvOIGA==}
-
-  '@oxc-project/types@0.140.0':
-    resolution: {integrity: sha512-h5LUOzGArYemnW1NMz/DuuQhBi96J6JL2Bk8zE4kvqxB5Sg3jxmCiH4uyOWHDkiKSt5vWlG4FIwCR/DbstcNRQ==}
 
   '@oxc-project/types@0.141.0':
     resolution: {integrity: sha512-S4as7z0j0xQkXcJlyY5ehntwK8/wRkQb9Cyqw+J/N2rkWGQGK0SxD6X6DhQTc7qsxVTBxXbxZtBJh3mr3PtIzQ==}
@@ -3275,8 +3272,6 @@ snapshots:
   '@oxc-project/runtime@0.141.0': {}
 
   '@oxc-project/types@0.133.0': {}
-
-  '@oxc-project/types@0.140.0': {}
 
   '@oxc-project/types@0.141.0': {}
 
