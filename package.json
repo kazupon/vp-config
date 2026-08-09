@@ -52,7 +52,7 @@
     "@typescript/native-preview": "7.0.0-dev.20260707.2",
     "assertion-error": "2.0.1",
     "bumpp": "^11.1.0",
-    "gh-changelogen": "^0.2.8",
+    "gh-changelogen": "^1.0.0",
     "knip": "^6.0.0",
     "oxfmt": "0.57.0",
     "oxlint": "1.76.0",
