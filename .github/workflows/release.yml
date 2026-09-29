@@ -36,7 +36,6 @@ jobs:
       github.event_name == 'push' || (github.event_name == 'workflow_dispatch' &&
         (inputs.job == 'all' || inputs.job == 'npm-publish'))
 
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -75,7 +74,6 @@ jobs:
       - npm-publish
     if: >-
       (github.event_name == 'push' && needs.npm-publish.result == 'success') || (github.event_name == 'workflow_dispatch' && (inputs.job == 'all' || inputs.job == 'release-notes'))
-
 
     runs-on: ubuntu-latest
     permissions:

@@ -1,8 +1,8 @@
 allowBuilds:
   esbuild: true
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@latest
-  vite-plus: latest
+  vite: npm:@voidzero-dev/vite-plus-core@1.0.0
+  vite-plus: 1.0.0
 minimumReleaseAgeExclude:
   - '@kazupon/vp-config'
   - '@iconify-json/simple-icons'
@@ -15,3 +15,5 @@ peerDependencyRules:
     - vite
   allowedVersions:
     vite: '*'
+overrides:
+  vite@*: 'catalog:'
