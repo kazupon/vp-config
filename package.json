@@ -52,7 +52,7 @@
     "pkg-pr-new": "^0.0.87",
     "typescript": "~7.0.2",
     "vite-plus": "catalog:",
-    "vitepress-api-references": "^0.2.0"
+    "vitepress-api-references": "^0.3.0"
   },
   "peerDependencies": {
     "vite-plus": "^1.0.0"
