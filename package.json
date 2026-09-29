@@ -47,7 +47,7 @@
   "devDependencies": {
     "@types/node": "^25.9.2",
     "bumpp": "^11.1.0",
-    "gh-changelogen": "^0.2.8",
+    "gh-changelogen": "^2.0.0",
     "knip": "^6.0.0",
     "pkg-pr-new": "^0.0.87",
     "typescript": "~7.0.2",
