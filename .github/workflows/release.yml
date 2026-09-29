@@ -121,7 +121,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Sync changelog from github releases
-        run: vp exec gh-changelogen --repo=kazupon/vp-config --tag="$TAG"
+        # gh-changelogen writes the GitHub release notes as is, so format them for `vp check`
+        run: |
+          vp exec gh-changelogen --repo=kazupon/vp-config --tag="$TAG"
+          vp fmt CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
