@@ -36,7 +36,7 @@
     "prepublishOnly": "pnpm run build",
     "prepack": "vp pack",
     "knip": "knip",
-    "release": "bumpp --commit \"release: v%s\" --all --push --tag",
+    "release": "bumpp",
     "prepare": "vp config"
   },
   "dependencies": {
