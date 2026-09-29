@@ -5,5 +5,12 @@
   "major": {
     "automerge": false
   },
-  "minimumReleaseAge": "7 days"
+  "minimumReleaseAge": "7 days",
+  "packageRules": [
+    {
+      "description": "vp pack (tsdown) detects TypeScript 7 only with the `7.0` version prefix",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7.1.0"
+    }
+  ]
 }

@@ -39,7 +39,7 @@ function checkPackagedConsumer() {
   }
 
   const packedSpecifier = `file:${path.posix.join('..', 'pack', packedFile)}`
-  const tsgoVersion = packageJson.devDependencies['@typescript/native-preview']
+  const typescriptVersion = packageJson.devDependencies.typescript
 
   writeJson(path.join(consumerDir, 'package.json'), {
     name: 'vp-config-packaged-consumer',
@@ -47,14 +47,14 @@ function checkPackagedConsumer() {
     type: 'module',
     scripts: {
       check: 'vp check',
-      typecheck: 'tsgo --noEmit'
+      typecheck: 'tsc --noEmit'
     },
     dependencies: {
       '@kazupon/vp-config': packedSpecifier,
       'vite-plus': vitePlusVersion
     },
     devDependencies: {
-      '@typescript/native-preview': tsgoVersion
+      typescript: typescriptVersion
     }
   })
 
@@ -125,7 +125,7 @@ The default format overrides must preserve these line breaks.
   )
 
   run('pnpm', ['install', '--ignore-scripts'], { cwd: consumerDir })
-  run('pnpm', ['exec', 'tsgo', '--noEmit'], { cwd: consumerDir })
+  run('pnpm', ['exec', 'tsc', '--noEmit'], { cwd: consumerDir })
   // Check before `vp fmt`, which would unwrap the lines if the default overrides were not applied
   run('pnpm', ['exec', 'vp', 'fmt', '--check', 'CLAUDE.md'], { cwd: consumerDir })
   run('pnpm', ['exec', 'vp', 'fmt'], { cwd: consumerDir })
