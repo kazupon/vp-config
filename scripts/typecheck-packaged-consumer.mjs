@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url'
 const root = fileURLToPath(new URL('../', import.meta.url))
 const packageJson = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'))
 const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'vp-config-packaged-consumer-'))
-const vitePlusVersion = process.env.VITE_PLUS_VERSION ?? '0.2.1'
+const vitePlusVersion = process.env.VITE_PLUS_VERSION ?? '1.0.0'
 
 try {
   checkPackagedConsumer()
