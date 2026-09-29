@@ -124,13 +124,9 @@ export interface BaseLintConfigOptions {
 }
 
 /**
- * Format configuration options.
+ * Format options of oxfmt.
  */
-export interface FmtConfigOptions {
-  /**
-   * File glob patterns to ignore.
-   */
-  ignorePatterns?: string[]
+export interface FmtFormatOptions {
   /**
    * Whether to print semicolons.
    */
@@ -156,4 +152,37 @@ export interface FmtConfigOptions {
    */
   proseWrap?: 'always' | 'never' | 'preserve'
   [key: string]: unknown
+}
+
+/**
+ * Format override options.
+ */
+export interface FmtOverrideOptions {
+  /**
+   * File glob patterns to apply this override to.
+   */
+  files: FilePattern
+  /**
+   * File glob patterns to exclude from this override.
+   */
+  excludeFiles?: FilePattern
+  /**
+   * Format options to apply for matched files.
+   */
+  options?: FmtFormatOptions
+}
+
+/**
+ * Format configuration options.
+ */
+export interface FmtConfigOptions extends FmtFormatOptions {
+  /**
+   * File glob patterns to ignore.
+   */
+  ignorePatterns?: string[]
+  /**
+   * File-specific format overrides.
+   * When a file matches multiple overrides, the later override takes precedence.
+   */
+  overrides?: FmtOverrideOptions[]
 }
