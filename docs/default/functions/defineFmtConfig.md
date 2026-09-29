@@ -2,7 +2,7 @@
 
 Define format configuration for Vite Plus.
 
-If an options is not provided, the [default configuration](/docs/default/variables/defaultFmtConfig.md) be used.
+If an options is not provided, the [default configuration](/docs/default/variables/defaultFmtConfig.md) be used. The `overrides` option is appended after the [default overrides](/docs/default/variables/defaultFmtOverrides.md).
 
 ## Signature
 
