@@ -36,7 +36,6 @@ jobs:
       github.event_name == 'push' || (github.event_name == 'workflow_dispatch' &&
         (inputs.job == 'all' || inputs.job == 'npm-publish'))
 
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -66,16 +65,25 @@ jobs:
         run: vp pack
 
       - name: Publish to npm
-        run: vp exec pnpm publish --access public --no-git-checks --tag latest
+        run: |
+          # Publish prerelease versions (e.g. v1.0.0-rc.0) with `next` dist-tag
+          if [[ "$TAG" == *-* ]]; then
+            DIST_TAG=next
+          else
+            DIST_TAG=latest
+          fi
+          vp exec pnpm publish --access public --no-git-checks --tag "$DIST_TAG"
         env:
           NPM_CONFIG_PROVENANCE: true
 
   release-notes:
     needs:
       - npm-publish
+    # `!cancelled()` lets `workflow_dispatch` with `release-notes` job run while `npm-publish` is skipped
     if: >-
-      (github.event_name == 'push' && needs.npm-publish.result == 'success') || (github.event_name == 'workflow_dispatch' && (inputs.job == 'all' || inputs.job == 'release-notes'))
-
+      !cancelled() && ((github.event_name == 'push' && needs.npm-publish.result == 'success') ||
+        (github.event_name == 'workflow_dispatch' &&
+          ((inputs.job == 'all' && needs.npm-publish.result == 'success') || inputs.job == 'release-notes')))
 
     runs-on: ubuntu-latest
     permissions:
@@ -104,6 +112,8 @@ jobs:
         run: |
           if gh release view "$TAG" >/dev/null 2>&1; then
             echo "Release $TAG already exists, skipping"
+          elif [[ "$TAG" == *-* ]]; then
+            gh release create "$TAG" --generate-notes --prerelease
           else
             gh release create "$TAG" --generate-notes
           fi

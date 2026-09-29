@@ -1,7 +1,12 @@
 import { isAbsolute } from 'node:path'
 import { expect, test } from 'vite-plus/test'
-import { defineFmtConfig, defineLintConfig } from '../src/index.ts'
+import { defaultFmtOverrides, defineFmtConfig, defineLintConfig } from '../src/index.ts'
 
+import type { FmtOverrideOptions } from '../src/index.ts'
+
+type FmtConfig = Record<string, unknown> & {
+  overrides: Array<Required<Pick<FmtOverrideOptions, 'files' | 'options'>>>
+}
 type LintConfig = Record<string, unknown> & {
   overrides?: Array<{
     jsPlugins?: JSPluginEntry[] | null
@@ -33,6 +38,42 @@ function isJSPluginEntry(entry: unknown): entry is JSPluginEntry {
 
 test('defineFmtConfig', () => {
   expect(defineFmtConfig()).matchSnapshot()
+})
+
+test('defineFmtConfig appends user overrides after default overrides', () => {
+  const userOverride = {
+    files: ['**/CLAUDE.md'],
+    options: {
+      proseWrap: 'never'
+    }
+  } satisfies FmtOverrideOptions
+  const config = defineFmtConfig({
+    semi: true,
+    overrides: [userOverride]
+  })
+
+  expect(config).toEqual(
+    expect.objectContaining({
+      semi: true,
+      proseWrap: 'never',
+      overrides: [...defaultFmtOverrides, userOverride]
+    })
+  )
+})
+
+test('defineFmtConfig does not share default overrides', () => {
+  const config = defineFmtConfig() as FmtConfig
+  const [override] = config.overrides
+  override.files.push('**/README.md')
+  override.options.proseWrap = 'never'
+
+  expect(defaultFmtOverrides).toEqual([
+    {
+      files: expect.not.arrayContaining(['**/README.md']),
+      options: { proseWrap: 'preserve' }
+    }
+  ])
+  expect((defineFmtConfig() as FmtConfig).overrides).toEqual(defaultFmtOverrides)
 })
 
 test('defineLintConfig', () => {

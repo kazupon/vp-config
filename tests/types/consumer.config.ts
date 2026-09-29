@@ -17,6 +17,15 @@ export default defineConfig({
     ]
   }),
   fmt: defineFmtConfig({
-    printWidth: 100
+    printWidth: 100,
+    overrides: [
+      {
+        files: ['**/*.md'],
+        excludeFiles: ['CHANGELOG.md'],
+        options: {
+          proseWrap: 'always'
+        }
+      }
+    ]
   })
 })

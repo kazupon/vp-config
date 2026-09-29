@@ -4,6 +4,20 @@ exports[`defineFmtConfig 1`] = `
 {
   "arrowParens": "avoid",
   "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": [
+        "**/AGENTS.md",
+        "**/CLAUDE.md",
+        "**/GEMINI.md",
+        "**/.github/copilot-instructions.md",
+        "**/.aiassistant/rules/viteplus.md",
+      ],
+      "options": {
+        "proseWrap": "preserve",
+      },
+    },
+  ],
   "proseWrap": "never",
   "semi": false,
   "singleQuote": true,

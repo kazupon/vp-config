@@ -11,6 +11,7 @@ export const defaultFmtConfig = {
   trailingComma: 'none',
   endOfLine: 'lf',
   arrowParens: 'avoid',
-  proseWrap: 'never'
+  proseWrap: 'never',
+  overrides: defaultFmtOverrides
 } satisfies FmtConfigOptions
 ```

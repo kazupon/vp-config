@@ -7,12 +7,24 @@ Vite Plus configuration for @kazupon
 ## 🌟 Features
 
 - `vp fmt` custom configuration
-- `vp lint` custom cufiguration
+- `vp lint` custom configuration
+
+## ✅ Requirements
+
+- [Vite+](https://viteplus.dev) `^1.0.0`
+
+If you are using Vite+ v0.x, please use `@kazupon/vp-config@0.5.x`.
 
 ## 💿 Installation
 
 ```sh
 vp add -D @kazupon/vp-config
+```
+
+`@kazupon/vp-config` v1 is currently a release candidate. To try it, install it with the `next` tag:
+
+```sh
+vp add -D @kazupon/vp-config@next
 ```
 
 ## 🚀 Usage
@@ -36,6 +48,45 @@ export default defineConfig({
   })
 
   // and something here ...
+})
+```
+
+In a monorepo, put `lint` and `fmt` in the workspace root `vite.config.ts`. `vp check` always uses the root config, so use `overrides` for package-specific settings.
+
+## 🎨 Default format configuration
+
+`defineFmtConfig` uses the following defaults for `vp fmt` (oxfmt):
+
+| Option          | Value     |
+| --------------- | --------- |
+| `semi`          | `false`   |
+| `singleQuote`   | `true`    |
+| `trailingComma` | `'none'`  |
+| `endOfLine`     | `'lf'`    |
+| `arrowParens`   | `'avoid'` |
+| `proseWrap`     | `'never'` |
+
+### Coding agent instruction files
+
+`vp config` regenerates coding agent instruction files with hard-wrapped lines. To keep `vp check` passing, the following files use `proseWrap: 'preserve'` by default:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+- `GEMINI.md`
+- `.github/copilot-instructions.md`
+- `.aiassistant/rules/viteplus.md`
+
+Your `overrides` are applied after this default, so you can opt out:
+
+```ts
+// vite.config.ts
+import { defineConfig } from 'vite-plus'
+import { defineFmtConfig } from '@kazupon/vp-config'
+
+export default defineConfig({
+  fmt: defineFmtConfig({
+    overrides: [{ files: ['**/CLAUDE.md'], options: { proseWrap: 'never' } }]
+  })
 })
 ```
 
