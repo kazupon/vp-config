@@ -1,6 +1,6 @@
 {
   "automerge": true,
-  "extends": ["config:base", ":preserveSemverRanges", "helpers:pinGitHubActionDigests"],
+  "extends": ["config:recommended", ":preserveSemverRanges", "helpers:pinGitHubActionDigests"],
   "labels": ["deps"],
   "major": {
     "automerge": false
