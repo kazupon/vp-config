@@ -49,7 +49,7 @@
     "bumpp": "^12.0.0",
     "gh-changelogen": "^2.0.0",
     "knip": "^6.0.0",
-    "pkg-pr-new": "^0.0.88",
+    "pkg-pr-new": "^0.0.90",
     "typescript": "~7.0.2",
     "vite-plus": "catalog:",
     "vitepress-api-references": "^0.4.0"
