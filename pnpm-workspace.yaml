@@ -1,8 +1,8 @@
 allowBuilds:
   esbuild: true
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@1.1.0
-  vite-plus: 1.1.0
+  vite: npm:@voidzero-dev/vite-plus-core@1.2.0
+  vite-plus: 1.2.0
 minimumReleaseAgeExclude:
   - '@kazupon/vp-config'
   - '@iconify-json/simple-icons'
