@@ -93,6 +93,36 @@ test('defineLintConfig with jsdoc', () => {
   ).matchSnapshot()
 })
 
+test('defineLintConfig enables ts-ban-ts-comment only with the jsdoc typescript flavor preset', () => {
+  const configWithJSDoc = (typescript?: 'syntax' | 'flavor') =>
+    defineLintConfig({ jsdoc: { typescript } }) as LintConfig
+
+  expect(configWithJSDoc('flavor')).toEqual(
+    expect.objectContaining({
+      overrides: expect.arrayContaining([
+        expect.objectContaining({
+          rules: expect.objectContaining({
+            'ox-jsdoc/ts-ban-ts-comment': 'warn'
+          })
+        })
+      ])
+    })
+  )
+  for (const typescript of [undefined, 'syntax'] as const) {
+    expect(configWithJSDoc(typescript)).toEqual(
+      expect.objectContaining({
+        overrides: expect.arrayContaining([
+          expect.objectContaining({
+            rules: expect.objectContaining({
+              'ox-jsdoc/ts-ban-ts-comment': 'off'
+            })
+          })
+        ])
+      })
+    )
+  }
+})
+
 test('defineLintConfig with regexp', () => {
   expect(
     normalizeLintConfig(
