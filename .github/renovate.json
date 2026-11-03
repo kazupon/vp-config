@@ -12,5 +12,15 @@
       "matchPackageNames": ["typescript"],
       "allowedVersions": "<7.1.0"
     }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update the latest vite-plus version in the CI compatibility matrix",
+      "managerFilePatterns": ["/^\\.github/workflows/ci\\.yml$/"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\s+- '(?<currentValue>[^']+)'"
+      ]
+    }
   ]
 }
