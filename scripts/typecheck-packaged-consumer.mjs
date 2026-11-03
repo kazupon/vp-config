@@ -7,12 +7,15 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
+import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const packageJson = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'))
 const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'vp-config-packaged-consumer-'))
-const vitePlusVersion = process.env.VITE_PLUS_VERSION ?? '1.0.0'
+// Default to the installed vite-plus (the catalog version) so it never goes stale
+const vitePlusVersion =
+  process.env.VITE_PLUS_VERSION ?? createRequire(import.meta.url)('vite-plus/package.json').version
 
 try {
   checkPackagedConsumer()
