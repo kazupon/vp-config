@@ -36,7 +36,7 @@ jobs:
         run: vp install
 
       - name: Check strictly codes
-        run: vp check
+        run: vp check --deny-warnings
 
       - name: Check source compatibility
         run: vp run typecheck:compat
