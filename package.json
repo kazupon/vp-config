@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@kazupon/eslint-plugin": "^0.7.1",
-    "@ox-jsdoc/eslint-plugin-jsdoc": "^0.0.19",
+    "@ox-jsdoc/eslint-plugin-jsdoc": "^0.1.1",
     "eslint-plugin-regexp": "^3.1.0"
   },
   "devDependencies": {
