@@ -110,6 +110,8 @@ function createRecommendedRuleset(severity: JSDocRuleSeverity): RuleMap {
     'ox-jsdoc/no-restricted-syntax': 'off',
     'ox-jsdoc/no-types': 'off',
     'ox-jsdoc/no-undefined-types': severity,
+    'ox-jsdoc/no-unnecessary-type-assertion': 'off',
+    'ox-jsdoc/normalize-see-links': 'off',
     'ox-jsdoc/prefer-import-tag': 'off',
     'ox-jsdoc/reject-any-type': severity,
     'ox-jsdoc/reject-function-type': severity,
@@ -148,6 +150,7 @@ function createRecommendedRuleset(severity: JSDocRuleSeverity): RuleMap {
     'ox-jsdoc/sort-tags': 'off',
     'ox-jsdoc/tag-lines': severity,
     'ox-jsdoc/text-escaping': 'off',
+    'ox-jsdoc/ts-ban-ts-comment': 'off',
     'ox-jsdoc/ts-method-signature-style': 'off',
     'ox-jsdoc/ts-no-empty-object-type': severity,
     'ox-jsdoc/ts-no-unnecessary-template-expression': 'off',
@@ -177,7 +180,8 @@ function createRecommendedTypeScriptRuleset(severity: JSDocRuleSeverity): RuleMa
 function createRecommendedTypeScriptFlavorRuleset(severity: JSDocRuleSeverity): RuleMap {
   return {
     ...createRecommendedRuleset(severity),
-    'ox-jsdoc/no-undefined-types': 'off'
+    'ox-jsdoc/no-undefined-types': 'off',
+    'ox-jsdoc/ts-ban-ts-comment': severity
   }
 }
 
