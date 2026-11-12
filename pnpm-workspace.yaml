@@ -10,6 +10,7 @@ minimumReleaseAgeExclude:
   - ox-jsdoc
   - '@ox-content/**'
   - vitepress-api-references
+  - '@kazupon/eslint-plugin'
 peerDependencyRules:
   allowAny:
     - vite
