@@ -40,7 +40,7 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "@kazupon/eslint-plugin": "^0.7.1",
+    "@kazupon/eslint-plugin": "^0.8.0",
     "@ox-jsdoc/eslint-plugin-jsdoc": "^0.1.1",
     "eslint-plugin-regexp": "^3.1.0"
   },
