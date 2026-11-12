@@ -81,7 +81,7 @@ jobs:
           # Lowest version in peerDependencies
           - '1.0.0'
           # renovate: datasource=npm depName=vite-plus
-          - '1.4.0'
+          - '1.5.0'
     steps:
       - name: Checkout codes
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
